@@ -3,42 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>个人简历</title>
+  <title>个人简历 - 洪明博</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="bg-decoration"></div>
+
   <div class="container">
-    <header>
-      <h1>Hmingbo</h1>
-      <p class="subtitle">学生 / AI</p>
-      <div class="contact">
-        <span>📧 hongmingbo2011@qq.com</span>
-        <span>📍 中国福建</span>
+    <!-- 左侧栏 -->
+    <aside class="sidebar">
+      <div class="avatar-wrap">
+        <div class="avatar">
+          <span class="avatar-placeholder">📷</span>
+        </div>
       </div>
-    </header>
-    <section>
-      <h2>关于我</h2>
-      <p>暂无</p>
-    </section>
-    <section>
-      <h2>技能特长</h2>
-      <ul class="skills">
-        <li>语文 / 数学 / 英语</li>
-        <li>基础编程（Python）</li>
-        <li>视频剪辑 / 图片处理</li>
-      </ul>
-    </section>
-    <section>
-      <h2>获奖经历</h2>
-      <ul>
-        <li>暂无</li>
-        <li>暂无</li>
-      </ul>
-    </section>
-    <section>
-      <h2>兴趣爱好</h2>
-      <p>阅读、编程、音乐、运动等</p>
-    </section>
+
+      <h1 class="name">洪明博</h1>
+      <p class="tagline">初三学生 · 热爱学习</p>
+
+      <div class="divider"></div>
+
+      <div class="contact-section">
+        <h3>联系方式</h3>
+        <div class="contact-item">
+          <span class="contact-icon">📧</span>
+          <span>example@email.com</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <span>浙江省杭州市</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">🎂</span>
+          <span>2009年出生</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="skills-section">
+        <h3>技能特长</h3>
+        <div class="skill-item">
+          <span class="skill-name">语文</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">数学</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">英语</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Python编程</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="hobby-section">
+        <h3>兴趣爱好</h3>
+        <div class="hobby-tags">
+          <span class="hobby-tag">📚 阅读</span>
+          <span class="hobby-tag">💻 编程</span>
+          <span class="hobby-tag">🎵 音乐</span>
+          <span class="hobby-tag">⚽ 运动</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 右侧内容 -->
+    <main class="main-content">
+      <!-- 关于我 -->
+      <section class="section-card fade-in">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <h2>关于我</h2>
+        </div>
+        <p>我是一名初三学生，就读于浙江省某初中。我热爱数学和编程，享受解决难题的过程，学习能力强。生活中性格开朗，乐于与同学讨论问题，有良好的团队协作精神。课外时间喜欢阅读科普书籍，学习新知识。</p>
+      </section>
+
+      <!-- 获奖经历 -->
+      <section class="section-card fade-in">
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <h2>获奖经历</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">2024</span>
+              <h4>校级三好学生</h4>
+              <p>综合成绩排名前5%，获校级三好学生称号</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">2024</span>
+              <h4>数学竞赛二等奖</h4>
+              <p>校级数学竞赛获二等奖</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">2023</span>
+              <h4>英语演讲比赛三等奖</h4>
+              <p>区级英语演讲比赛获三等奖</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 学习经历 -->
+      <section class="section-card fade-in">
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <h2>学习经历</h2>
+        </div>
+        <div class="experience-grid">
+          <div class="exp-card">
+            <span class="exp-period">2022 - 2025</span>
+            <h4>浙江省某中学</h4>
+            <p>初中阶段，成绩优异，稳定年级前10%</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 自我评价 -->
+      <section class="section-card fade-in">
+        <div class="section-header">
+          <span class="section-num">04</span>
+          <h2>自我评价</h2>
+        </div>
+        <div class="quote-box">
+          <p>学习态度端正，有较强的自学能力和抗压能力。喜欢钻研难题，对新事物保持好奇心。团队合作中善于倾听，能够积极配合完成目标。</p>
+        </div>
+      </section>
+    </main>
   </div>
+
+  <footer>
+    <p>👋 感谢查看 · 最后更新于 2026年5月</p>
+  </footer>
 </body>
 </html>
