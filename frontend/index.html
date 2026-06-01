@@ -1633,15 +1633,22 @@
           const first = (data.results || [])[0] || {}
           item.status = 'success'
           item.category = first.category || (first.status === 'success' ? '' : '')
+          item.result = first
           if (typeof mergeLastUploadSuccess === 'function') {
             lastUploadSuccess = mergeLastUploadSuccess(lastUploadSuccess, item)
           } else {
             const category = String(item.category || '').trim()
-            const filename = String(item.name || '').trim()
-            if (category && filename) {
-              const k = highlightKey(category, filename)
+            const names = []
+            const addName = (value) => { const v = String(value || '').trim(); if (v && !names.includes(v)) names.push(v) }
+            addName(first.filename)
+            addName(first.saved_filename)
+            addName(item.name)
+            if (category && names.length) {
               const arr = Array.isArray(lastUploadSuccess) ? lastUploadSuccess.slice() : []
-              if (!arr.some(x => x && highlightKey(x.category, x.filename) === k)) arr.push({ category, filename })
+              names.forEach(filename => {
+                const k = highlightKey(category, filename)
+                if (!arr.some(x => x && highlightKey(x.category, x.filename) === k)) arr.push({ category, filename })
+              })
               lastUploadSuccess = arr
             }
           }
@@ -1839,6 +1846,7 @@
         const clear = () => matches.forEach(el => el.classList.remove('kb-highlight'))
         setTimeout(clear, reduce ? 0 : 2500)
       }
+      if (!matches.length) return
       lastUploadSuccess = []
       writeJson(LAST_UPLOAD_SUCCESS_KEY, [])
     }
@@ -2019,8 +2027,9 @@
                 const fav = isFavorited(category, n)
                 const favIcon = fav ? '★' : '☆'
                 const favCls = fav ? 'text-yellow-500 hover:text-yellow-600' : 'text-gray-400 hover:text-gray-600'
+                const fileKey = highlightKey(category, n)
                 return `
-                <li class="text-sm text-gray-600 flex items-center justify-between group">
+                <li class="text-sm text-gray-600 flex items-center justify-between group" data-file-key="${escapeAttr(fileKey)}">
                   <div class="flex items-center before:content-[''] before:w-2 before:h-[1px] before:bg-gray-300 before:mr-2 before:-ml-5">
                     <span class="truncate max-w-[220px]" title="${escapeHtml(f.name)}">${escapeHtml(f.name)}</span>
                   </div>

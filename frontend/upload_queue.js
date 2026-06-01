@@ -60,15 +60,28 @@
     return String(category || '') + '::' + String(filename || '')
   }
 
+  function filenamesForUploadResult(item, result) {
+    const names = []
+    const add = (value) => {
+      const v = String(value || '').trim()
+      if (v && !names.includes(v)) names.push(v)
+    }
+    add(result && result.filename)
+    add(result && result.saved_filename)
+    add(item && item.name)
+    return names
+  }
+
   function mergeLastUploadSuccess(prev, item) {
     const arr = Array.isArray(prev) ? prev.slice() : []
     if (!item || normStatus(item.status) !== 'success') return arr
     const category = String(item.category || '').trim()
-    const filename = String(item.name || '').trim()
-    if (!category || !filename) return arr
-    const k = makeHighlightKey(category, filename)
-    if (arr.some(x => x && makeHighlightKey(x.category, x.filename) === k)) return arr
-    arr.push({ category, filename })
+    if (!category) return arr
+    const names = filenamesForUploadResult(item, item.result || null)
+    names.forEach(filename => {
+      const k = makeHighlightKey(category, filename)
+      if (!arr.some(x => x && makeHighlightKey(x.category, x.filename) === k)) arr.push({ category, filename })
+    })
     return arr
   }
 
@@ -103,8 +116,9 @@
       retryOne,
       retryFailed,
       clearQueue,
-    clearFailedUploads,
+      clearFailedUploads,
       makeHighlightKey,
+      filenamesForUploadResult,
       mergeLastUploadSuccess,
       snapshotUploadHistory,
       shouldAutoClearFilters,

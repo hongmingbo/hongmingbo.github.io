@@ -3,6 +3,7 @@ const {
   retryOne,
   retryFailed,
   clearQueue,
+  mergeLastUploadSuccess,
 } = require('../upload_queue')
 
 describe('upload_queue', () => {
@@ -52,6 +53,16 @@ describe('upload_queue', () => {
     ]
     const next = clearQueue(queue)
     expect(next.map(x => x.id)).toEqual(['3', '4'])
+  })
+
+  test('mergeLastUploadSuccess prefers backend saved filename for jump highlight', () => {
+    const out = mergeLastUploadSuccess([], {
+      name: '原始.pdf',
+      status: 'success',
+      category: '数学',
+      result: { filename: '原始_1.pdf', saved_filename: '原始_1.pdf' },
+    })
+    expect(out).toContainEqual({ category: '数学', filename: '原始_1.pdf' })
   })
 })
 

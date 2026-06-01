@@ -171,6 +171,33 @@ D. 选项D
     assert items[1]["options"] == []
 
 
+def test_split_questions_extracts_answers_outside_stems():
+    from main import split_questions_from_text
+
+    text = """一、选择题
+1. 下列说法正确的是（ ）
+A. 选项A
+B. 选项B
+C. 选项C
+D. 选项D
+
+2. 下列说法错误的是（ ）
+A. 选项A
+B. 选项B
+
+参考答案
+1. C
+2、A
+"""
+
+    items = split_questions_from_text(text)
+    assert len(items) == 2
+    assert items[0]["answer"] == "C"
+    assert items[1]["answer"] == "A"
+    assert "参考答案" not in items[1]["stem"]
+    assert "1. C" not in items[1]["stem"]
+
+
 def test_api_split_creates_questions_file(tmp_path: Path, monkeypatch):
     client = TestClient(main.app)
     user_id, token = _create_user_and_token(client, monkeypatch, tmp_path, "u3")

@@ -465,11 +465,29 @@ def split_questions_from_text(text: str):
         return []
 
     t = text.replace("\r\n", "\n").replace("\r", "\n")
-    lines = t.split("\n")
+    fw_to_hw = str.maketrans("ＡＢＣＤ", "ABCD")
 
+    answer_map = {}
+    answer_section = ""
+    answer_marker = re.search(r"(?im)^\s*(?:参考答案|答案|试题答案|【答案】)\s*[:：]?\s*$", t)
+    if answer_marker:
+        answer_section = t[answer_marker.start():]
+        t = t[:answer_marker.start()]
+    else:
+        inline_marker = re.search(r"(?im)^\s*(?:参考答案|答案|试题答案|【答案】)\s*[:：]\s*.+$", t)
+        if inline_marker:
+            answer_section = t[inline_marker.start():]
+            t = t[:inline_marker.start()]
+
+    if answer_section:
+        answer_pat = re.compile(r"(?:^|[\s，,；;])(?:第\s*)?(\d{1,3})(?:\s*题)?\s*[\.、\)）:：]?\s*([A-DＡ-Ｄ])(?=$|[\s，,；;。])", re.M)
+        for m in answer_pat.finditer(answer_section):
+            qid = str(int(m.group(1)))
+            answer_map[qid] = (m.group(2) or "").translate(fw_to_hw).upper()
+
+    lines = t.split("\n")
     q_start = re.compile(r"^\s*(?:\((\d{1,3})\)|（(\d{1,3})）|(\d{1,3})[\.、\)])\s*(.*)$")
     opt_line = re.compile(r"^\s*([A-DＡ-Ｄ])[\.．、\)]?\s*(.*)$")
-    fw_to_hw = str.maketrans("ＡＢＣＤ", "ABCD")
 
     blocks = []
     current = None
@@ -495,36 +513,40 @@ def split_questions_from_text(text: str):
     for qid, b in blocks:
         stem_lines = []
         options = []
+        answer_key = str(int(qid)) if str(qid).isdigit() else str(qid)
+        answer = answer_map.get(answer_key, "")
 
         for line in b:
-            s = (line or "").strip()
-            if not s:
+            s_line = (line or "").strip()
+            if not s_line:
                 if stem_lines and stem_lines[-1] != "":
                     stem_lines.append("")
                 continue
 
-            m = opt_line.match(s)
+            inline_answer = re.match(r"^(?:答案|参考答案|【答案】)\s*[:：]?\s*([A-DＡ-Ｄ])\b", s_line)
+            if inline_answer and not answer:
+                answer = (inline_answer.group(1) or "").translate(fw_to_hw).upper()
+                continue
+
+            m = opt_line.match(s_line)
             if m:
-                letter = (m.group(1) or "").translate(fw_to_hw)
-                letter = letter.upper()
+                letter = (m.group(1) or "").translate(fw_to_hw).upper()
                 if letter in ["A", "B", "C", "D"]:
                     body = (m.group(2) or "").strip()
                     options.append(f"{letter}. {body}".strip())
                     continue
 
-            stem_lines.append(s)
+            stem_lines.append(s_line)
 
         stem = "\n".join([x for x in stem_lines]).strip()
-        items.append(
-            {
-                "id": str(qid),
-                "stem": stem,
-                "options": options,
-                "answer": "",
-                "analysis": "",
-                "tags": [],
-            }
-        )
+        items.append({
+            "id": str(qid),
+            "stem": stem,
+            "options": options,
+            "answer": answer,
+            "analysis": "",
+            "tags": [],
+        })
 
     return items
 
