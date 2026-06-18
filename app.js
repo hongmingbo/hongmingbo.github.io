@@ -210,7 +210,7 @@ function closeProject() {
   document.body.style.overflow = '';
 }
 
-// ========== Custom Cursor ==========
+// ========== Custom Cursor (faster follow) ==========
 const cursor = document.getElementById('cursor');
 const cursorDot = document.getElementById('cursorDot');
 let mouseX = 0, mouseY = 0;
@@ -224,8 +224,9 @@ document.addEventListener('mousemove', (e) => {
 });
 
 function animateCursor() {
-  cursorX += (mouseX - cursorX) * 0.08;
-  cursorY += (mouseY - cursorY) * 0.08;
+  // Faster lerp: 0.25 gives responsive but still smooth follow
+  cursorX += (mouseX - cursorX) * 0.25;
+  cursorY += (mouseY - cursorY) * 0.25;
   cursor.style.left = cursorX + 'px';
   cursor.style.top = cursorY + 'px';
   requestAnimationFrame(animateCursor);
