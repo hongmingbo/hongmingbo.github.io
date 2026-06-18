@@ -357,3 +357,191 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') { closeMenu(); closeProject(); }
   });
 });
+
+// ========== Loading Screen ==========
+(function initLoader() {
+  const loader = document.getElementById('loader');
+  const fill = document.getElementById('loaderFill');
+  const num = document.getElementById('loaderNum');
+  const percent = document.getElementById('loaderPercent');
+  if (!loader) return;
+  
+  let progress = 0;
+  const duration = 1800;
+  const start = performance.now();
+  
+  function step(now) {
+    const elapsed = now - start;
+    progress = Math.min(100, (elapsed / duration) * 100);
+    // Ease out cubic
+    const eased = 1 - Math.pow(1 - progress / 100, 3);
+    const value = Math.floor(eased * 100);
+    
+    fill.style.width = value + '%';
+    num.textContent = value;
+    percent.textContent = value + '%';
+    
+    if (progress < 100) {
+      requestAnimationFrame(step);
+    } else {
+      setTimeout(() => loader.classList.add('hidden'), 200);
+    }
+  }
+  requestAnimationFrame(step);
+})();
+
+// ========== Scroll Progress Bar ==========
+window.addEventListener('scroll', () => {
+  const progress = document.getElementById('scrollProgress');
+  if (!progress) return;
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? scrollTop / docHeight : 0;
+  progress.style.transform = `scaleX(${pct})`;
+});
+
+// ========== Magnetic Button ==========
+document.querySelectorAll('.magnetic').forEach(el => {
+  let currentX = 0, currentY = 0;
+  let targetX = 0, targetY = 0;
+  let isHovering = false;
+  
+  function animate() {
+    currentX += (targetX - currentX) * 0.18;
+    currentY += (targetY - currentY) * 0.18;
+    el.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+  
+  el.addEventListener('mousemove', (e) => {
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    targetX = x * 0.3;
+    targetY = y * 0.3;
+    isHovering = true;
+  });
+  
+  el.addEventListener('mouseleave', () => {
+    targetX = 0;
+    targetY = 0;
+    isHovering = false;
+  });
+});
+
+// ========== Counter Animation ==========
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target, 10);
+      const duration = 1600;
+      const start = performance.now();
+      
+      function tick(now) {
+        const elapsed = now - start;
+        const t = Math.min(1, elapsed / duration);
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.floor(eased * target);
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(tick);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+// ========== Text Scramble (for hero title) ==========
+class TextScramble {
+  constructor(el) {
+    this.el = el;
+    this.chars = '!<>-_\\/[]{}—=+*^?#________';
+    this.update = this.update.bind(this);
+  }
+  
+  setText(newText) {
+    const oldText = this.el.textContent;
+    const length = Math.max(oldText.length, newText.length);
+    const promise = new Promise((resolve) => this.resolve = resolve);
+    this.queue = [];
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || '';
+      const to = newText[i] || '';
+      const start = Math.floor(Math.random() * 40);
+      const end = start + Math.floor(Math.random() * 40);
+      this.queue.push({ from, to, start, end });
+    }
+    cancelAnimationFrame(this.frameRequest);
+    this.frame = 0;
+    this.update();
+    return promise;
+  }
+  
+  update() {
+    let output = '';
+    let complete = 0;
+    for (let i = 0, n = this.queue.length; i < n; i++) {
+      let { from, to, start, end, char } = this.queue[i];
+      if (this.frame >= end) {
+        complete++;
+        output += to;
+      } else if (this.frame >= start) {
+        if (!char || Math.random() < 0.28) {
+          char = this.chars[Math.floor(Math.random() * this.chars.length)];
+          this.queue[i].char = char;
+        }
+        output += `<span class="scramble-char">${char}</span>`;
+      } else {
+        output += from;
+      }
+    }
+    this.el.innerHTML = output;
+    if (complete === this.queue.length) {
+      this.resolve();
+    } else {
+      this.frameRequest = requestAnimationFrame(this.update);
+      this.frame++;
+    }
+  }
+}
+
+// Apply scramble to hero name on load
+const heroName = document.querySelector('.name');
+if (heroName) {
+  const finalText = heroName.textContent;
+  const scrambler = new TextScramble(heroName);
+  setTimeout(() => scrambler.setText(finalText), 800);
+}
+
+// ========== Letter Stagger Reveal ==========
+function staggerReveal(selector) {
+  const els = document.querySelectorAll(selector);
+  els.forEach(el => {
+    const text = el.textContent;
+    el.innerHTML = text.split('').map(char => 
+      char === ' ' ? ' ' : `<span class="letter">${char}</span>`
+    ).join('');
+  });
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const letters = entry.target.querySelectorAll('.letter');
+        letters.forEach((letter, i) => {
+          setTimeout(() => letter.classList.add('visible'), i * 30);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  
+  els.forEach(el => observer.observe(el));
+}
+
+// Apply to section h2 headings
+staggerReveal('.section-header h2');

@@ -14,6 +14,24 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-dot" id="cursorDot"></div>
 
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <p class="loader-text">
+        <span>正在加载</span>
+        <span id="loaderPercent">0%</span>
+      </p>
+      <div class="loader-percent" id="loaderNum">0</div>
+      <div class="loader-bar">
+        <div class="loader-fill" id="loaderFill"></div>
+      </div>
+      <p class="loader-sub">H.mingbo / 2026</p>
+    </div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <!-- Background Effects -->
   <div class="noise"></div>
   <div class="orb orb-1"></div>
@@ -70,10 +88,10 @@
             专注于 Obsidian 工作流、AI 自动化与自托管基础设施。
           </p>
           <div class="social-links">
-            <a href="https://github.com/Hongmingbo" class="social-link" target="_blank" rel="noopener">
+            <a href="https://github.com/Hongmingbo" class="social-link magnetic" target="_blank" rel="noopener">
               <span class="icon">⟨⟩</span> GitHub
             </a>
-            <a href="mailto:hongmingbo2011@qq.com" class="social-link">
+            <a href="mailto:hongmingbo2011@qq.com" class="social-link magnetic">
               <span class="icon">@</span> 邮箱
             </a>
           </div>
@@ -93,6 +111,44 @@
 };</pre>
         </div>
       </div>
+
+      <!-- Marquee Tagline -->
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="marquee-item">构建高效工具<span class="dot"></span></span>
+          <span class="marquee-item">沉淀知识体系<span class="dot"></span></span>
+          <span class="marquee-item">自动化工作流<span class="dot"></span></span>
+          <span class="marquee-item">自托管基础设施<span class="dot"></span></span>
+          <span class="marquee-item">AI 驱动开发<span class="dot"></span></span>
+          <span class="marquee-item">构建高效工具<span class="dot"></span></span>
+          <span class="marquee-item">沉淀知识体系<span class="dot"></span></span>
+          <span class="marquee-item">自动化工作流<span class="dot"></span></span>
+          <span class="marquee-item">自托管基础设施<span class="dot"></span></span>
+          <span class="marquee-item">AI 驱动开发<span class="dot"></span></span>
+        </div>
+      </div>
+
+      <!-- Stats Counter -->
+      <section class="section stats-section">
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <div class="stat-num"><span class="counter" data-target="6">0</span>+</div>
+            <div class="stat-label">开源项目</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-1">
+            <div class="stat-num"><span class="counter" data-target="5">0</span>+</div>
+            <div class="stat-label">技术文章</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-2">
+            <div class="stat-num"><span class="counter" data-target="12">0</span>+</div>
+            <div class="stat-label">技术栈</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-3">
+            <div class="stat-num"><span class="counter" data-target="3">0</span>+</div>
+            <div class="stat-label">自托管服务</div>
+          </div>
+        </div>
+      </section>
 
       <section class="section">
         <div class="section-header reveal">
