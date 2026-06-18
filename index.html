@@ -10,10 +10,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Background Effects -->
   <div class="noise"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
 
   <!-- Fixed Header -->
-  <header class="header">
+  <header class="header" id="header">
     <a href="#home" class="logo">H<span>.</span>mingbo</a>
     <button class="menu-btn" id="menuBtn" aria-label="Menu">
       <span class="menu-icon">
@@ -70,7 +78,7 @@
             </a>
           </div>
         </div>
-        <div class="hero-visual">
+        <div class="hero-visual" id="heroVisual">
           <pre class="code-block"><span class="token-keyword">const</span> <span class="token-var">profile</span> = {
   <span class="token-key">name</span>: <span class="token-string">"Hmingbo"</span>,
   <span class="token-key">role</span>: <span class="token-string">"Developer & Creator"</span>,
@@ -87,15 +95,15 @@
       </div>
 
       <section class="section">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="section-id">01</span>
           <h2>// Selected Projects</h2>
         </div>
-        <p class="section-desc">
+        <p class="section-desc reveal reveal-delay-1">
           精选项目展示，涵盖知识管理、自动化工具与个人基础设施。
         </p>
         <div class="projects-grid">
-          <article class="project-card" onclick="openProject('obsidian-vault')">
+          <article class="project-card reveal reveal-delay-1" onclick="openProject('obsidian-vault')">
             <div class="project-header">
               <span class="project-icon">📦</span>
               <span class="project-type">Open Source</span>
@@ -110,7 +118,7 @@
             <span class="project-link"><span class="arrow">→</span> View Details</span>
           </article>
 
-          <article class="project-card" onclick="openProject('portfolio')">
+          <article class="project-card reveal reveal-delay-2" onclick="openProject('portfolio')">
             <div class="project-header">
               <span class="project-icon">🌐</span>
               <span class="project-type">Website</span>
@@ -124,7 +132,7 @@
             <span class="project-link"><span class="arrow">→</span> View Details</span>
           </article>
 
-          <article class="project-card" onclick="openProject('we-mp-rss')">
+          <article class="project-card reveal reveal-delay-3" onclick="openProject('we-mp-rss')">
             <div class="project-header">
               <span class="project-icon">📡</span>
               <span class="project-type">Tool</span>
@@ -139,7 +147,7 @@
             <span class="project-link"><span class="arrow">→</span> View Details</span>
           </article>
 
-          <article class="project-card" onclick="openProject('monitoring')">
+          <article class="project-card reveal reveal-delay-4" onclick="openProject('monitoring')">
             <div class="project-header">
               <span class="project-icon">📊</span>
               <span class="project-type">Infrastructure</span>
@@ -160,15 +168,15 @@
     <!-- SKILLS VIEW -->
     <section class="view" id="skills-view">
       <div class="section">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="section-id">02</span>
           <h2>// Skills & Expertise</h2>
         </div>
-        <p class="section-desc">
+        <p class="section-desc reveal reveal-delay-1">
           技术栈与工具生态，按领域分组。
         </p>
         <div class="skills-grid">
-          <div class="skill-card">
+          <div class="skill-card reveal reveal-delay-1">
             <span class="skill-icon">⌨</span>
             <div>
               <h3>Languages</h3>
@@ -181,7 +189,7 @@
               </div>
             </div>
           </div>
-          <div class="skill-card">
+          <div class="skill-card reveal reveal-delay-2">
             <span class="skill-icon">⚙</span>
             <div>
               <h3>Tools & DevOps</h3>
@@ -194,7 +202,7 @@
               </div>
             </div>
           </div>
-          <div class="skill-card">
+          <div class="skill-card reveal reveal-delay-3">
             <span class="skill-icon">✦</span>
             <div>
               <h3>AI & Automation</h3>
@@ -207,7 +215,7 @@
               </div>
             </div>
           </div>
-          <div class="skill-card">
+          <div class="skill-card reveal reveal-delay-4">
             <span class="skill-icon">☁</span>
             <div>
               <h3>Cloud & Network</h3>
@@ -219,7 +227,7 @@
               </div>
             </div>
           </div>
-          <div class="skill-card">
+          <div class="skill-card reveal reveal-delay-1">
             <span class="skill-icon">📝</span>
             <div>
               <h3>Knowledge Work</h3>
@@ -231,7 +239,7 @@
               </div>
             </div>
           </div>
-          <div class="skill-card">
+          <div class="skill-card reveal reveal-delay-2">
             <span class="skill-icon">🎨</span>
             <div>
               <h3>Design & Frontend</h3>
@@ -250,15 +258,15 @@
     <!-- PROJECTS VIEW -->
     <section class="view" id="projects-view">
       <div class="section">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="section-id">03</span>
           <h2>// All Projects</h2>
         </div>
-        <p class="section-desc">
+        <p class="section-desc reveal reveal-delay-1">
           所有项目，从开源工具到自托管基础设施。
         </p>
         <div class="projects-grid">
-          <article class="project-card" onclick="openProject('obsidian-vault')">
+          <article class="project-card reveal reveal-delay-1" onclick="openProject('obsidian-vault')">
             <div class="project-header">
               <span class="project-icon">📦</span>
               <span class="project-type">Open Source</span>
@@ -273,7 +281,7 @@
             <span class="project-link"><span class="arrow">→</span> View Details</span>
           </article>
 
-          <article class="project-card" onclick="openProject('portfolio')">
+          <article class="project-card reveal reveal-delay-2" onclick="openProject('portfolio')">
             <div class="project-header">
               <span class="project-icon">🌐</span>
               <span class="project-type">Website</span>
@@ -287,7 +295,7 @@
             <span class="project-link"><span class="arrow">→</span> View Details</span>
           </article>
 
-          <article class="project-card" onclick="openProject('we-mp-rss')">
+          <article class="project-card reveal reveal-delay-3" onclick="openProject('we-mp-rss')">
             <div class="project-header">
               <span class="project-icon">📡</span>
               <span class="project-type">Tool</span>
@@ -302,7 +310,7 @@
             <span class="project-link"><span class="arrow">→</span> View Details</span>
           </article>
 
-          <article class="project-card" onclick="openProject('monitoring')">
+          <article class="project-card reveal reveal-delay-4" onclick="openProject('monitoring')">
             <div class="project-header">
               <span class="project-icon">📊</span>
               <span class="project-type">Infrastructure</span>
@@ -317,7 +325,7 @@
             <span class="project-link"><span class="arrow">→</span> View Details</span>
           </article>
 
-          <article class="project-card" onclick="openProject('cloudflared')">
+          <article class="project-card reveal reveal-delay-1" onclick="openProject('cloudflared')">
             <div class="project-header">
               <span class="project-icon">🔗</span>
               <span class="project-type">DevOps</span>
@@ -332,7 +340,7 @@
             <span class="project-link"><span class="arrow">→</span> View Details</span>
           </article>
 
-          <article class="project-card" onclick="openProject('memory-system')">
+          <article class="project-card reveal reveal-delay-2" onclick="openProject('memory-system')">
             <div class="project-header">
               <span class="project-icon">🧠</span>
               <span class="project-type">Design</span>
@@ -353,43 +361,43 @@
     <!-- WRITING VIEW -->
     <section class="view" id="writing-view">
       <div class="section">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="section-id">04</span>
           <h2>// Writing & Notes</h2>
         </div>
-        <p class="section-desc">
+        <p class="section-desc reveal reveal-delay-1">
           技术文章、学习笔记与项目总结。
         </p>
         <div class="writing-list">
-          <article class="writing-item">
+          <article class="writing-item reveal reveal-delay-1">
             <span class="writing-date">2026-06</span>
             <div>
               <h3>记忆系统设计原则</h3>
               <p>分层提炼、震动阈值、双轨记忆——如何构建有效的长期记忆体系</p>
             </div>
           </article>
-          <article class="writing-item">
+          <article class="writing-item reveal reveal-delay-2">
             <span class="writing-date">2026-06</span>
             <div>
               <h3>自托管监控三件套部署指南</h3>
               <p>Uptime Kuma + Healthchecks + Netdata 在 Windows + Docker 环境下的实践</p>
             </div>
           </article>
-          <article class="writing-item">
+          <article class="writing-item reveal reveal-delay-3">
             <span class="writing-date">2026-06</span>
             <div>
               <h3>从零搭建 Cloudflare Tunnel</h3>
               <p>WARP + DoH + HTTP/2 的兼容性踩坑记录与最终方案</p>
             </div>
           </article>
-          <article class="writing-item">
+          <article class="writing-item reveal reveal-delay-4">
             <span class="writing-date">2026-05</span>
             <div>
               <h3>Hermes Agent 记忆系统实践</h3>
               <p>三层记忆架构：Global / Important / Temporary，以及 7 天生命周期管理</p>
             </div>
           </article>
-          <article class="writing-item">
+          <article class="writing-item reveal reveal-delay-1">
             <span class="writing-date">2026-05</span>
             <div>
               <h3>Windows 自托管服务部署模式</h3>
@@ -403,27 +411,27 @@
     <!-- CONTACT VIEW -->
     <section class="view" id="contact-view">
       <div class="section">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="section-id">05</span>
           <h2>// Get in Touch</h2>
         </div>
-        <p class="section-desc">
+        <p class="section-desc reveal reveal-delay-1">
           有项目想法、合作意向或技术交流？欢迎联系。
         </p>
         <div class="contact-grid">
-          <div class="contact-card">
+          <div class="contact-card reveal reveal-delay-1">
             <h4>Email</h4>
             <a href="mailto:hongmingbo2011@qq.com">hongmingbo2011@qq.com</a>
           </div>
-          <div class="contact-card">
+          <div class="contact-card reveal reveal-delay-2">
             <h4>GitHub</h4>
             <a href="https://github.com/Hongmingbo" target="_blank" rel="noopener">@Hongmingbo</a>
           </div>
-          <div class="contact-card">
+          <div class="contact-card reveal reveal-delay-3">
             <h4>Location</h4>
             <p>China</p>
           </div>
-          <div class="contact-card">
+          <div class="contact-card reveal reveal-delay-4">
             <h4>Status</h4>
             <p style="color: var(--green);">● Open to opportunities</p>
           </div>
