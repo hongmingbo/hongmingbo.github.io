@@ -1,6 +1,6 @@
 # Hongmingbo.github.io
 
-极简风格的个人作品集网站，采用终端/代码美学设计。
+极简技术感个人作品集网站，参考 [Lusion](https://lusion.co) 设计语言。
 
 ## 预览
 
@@ -9,29 +9,33 @@
 ## 项目结构
 
 ```
-├── index.html    # 主页面（技能导向 + 项目展示）
-└── style.css     # 极简暗色主题样式
+├── index.html    # 主页面（多视图 SPA）
+├── style.css     # 极简暗色主题 + 全屏菜单 + 项目弹窗
+├── app.js        # Hash 路由 + 全屏菜单 + 项目详情弹窗
+└── README.md     # 本文件
 ```
 
 ## 设计特点
 
 - **极简美学** — 暗色背景 + 噪点纹理 + 单色调色板
 - **技术感** — JetBrains Mono 等宽字体 + 终端风格 UI + 代码高亮配色
-- **创意交互** — 终端标题栏、光标闪烁、悬停微动效、渐变边框
+- **创意交互** — 全屏菜单覆盖层 + 页面切换动画 + 项目详情弹窗 + 滚动指示器
+- **参考设计** — [Lusion.co](https://lusion.co) 的终端风格导航 + 项目网格 + 标签系统
 
-## 内容模块
+## 页面结构
 
-1. **Hero** — 终端风格首屏，代码块展示 profile 对象
-2. **Skills** — 三大技能领域（Languages / DevOps / AI）
-3. **Projects** — 项目卡片网格（obsidian-vault / Hongmingbo.github.io / we-mp-rss）
-4. **Writing** — 时间线式文章列表
+1. **Home** — 终端风格首屏 + 精选项目预览（4 个项目卡片）
+2. **Skills** — 6 大技能领域卡片（Languages / DevOps / AI / Cloud / Knowledge / Design）
+3. **Projects** — 6 个项目完整网格（含详细弹窗）
+4. **Writing** — 时间线式文章列表（5 篇）
+5. **Contact** — 联系方式网格
 
 ## 技术栈
 
-- HTML5 + CSS3
-- CSS Grid / Flexbox 响应式布局
+- HTML5 + CSS3（Grid/Flexbox 响应式）
+- Vanilla JavaScript（无框架依赖）
+- Hash 路由（SPA 多视图切换）
 - CSS 自定义属性（设计令牌）
-- 原生 JavaScript（光标动画）
 
 ## 本地预览
 
