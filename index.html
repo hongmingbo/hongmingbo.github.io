@@ -3,154 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>个人简历 - Hmingbo</title>
+  <title>Hmingbo — Developer & Creator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg-decoration"></div>
-
-  <div class="container">
-    <!-- 左侧栏 -->
-    <aside class="sidebar">
-      <div class="avatar-wrap">
-        <div class="avatar">
-          <span class="avatar-placeholder">📷</span>
+  <div class="noise"></div>
+  
+  <header class="header">
+    <div class="terminal-bar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="terminal-title">hmingbo@portfolio:~</span>
+    </div>
+    <div class="hero">
+      <div class="hero-text">
+        <p class="greeting">$ whoami</p>
+        <h1 class="name">
+          <span class="bracket">[</span>
+          Hmingbo
+          <span class="bracket">]</span>
+        </h1>
+        <p class="title">
+          <span class="prompt">❯</span>
+          <span class="typing">Developer / Creator / Learner</span>
+          <span class="cursor">|</span>
+        </p>
+        <p class="desc">
+          构建高效工具，沉淀知识体系。<br>
+           obsidian-vault · 技术博客 · 开源项目
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/Hongmingbo" class="social-link" target="_blank" rel="noopener">
+            <span class="icon">⟨⟩</span> GitHub
+          </a>
+          <a href="mailto:hongmingbo2011@qq.com" class="social-link">
+            <span class="icon">@</span> Email
+          </a>
         </div>
       </div>
-
-      <h1 class="name">Hmingbo</h1>
-      <p class="tagline">初三学生 · 热爱学习</p>
-
-      <div class="divider"></div>
-
-      <div class="contact-section">
-        <h3>联系方式</h3>
-        <div class="contact-item">
-          <span class="contact-icon">📧</span>
-          <span>hongmingbo2011@qq.com</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">📍</span>
-          <span>福建省</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">🎂</span>
-          <span>2011年出生</span>
-        </div>
+      <div class="hero-visual">
+        <pre class="code-block">
+<span class="token-keyword">const</span> <span class="token-var">profile</span> = {
+  <span class="token-key">name</span>: <span class="token-string">"Hmingbo"</span>,
+  <span class="token-key">role</span>: <span class="token-string">"Developer"</span>,
+  <span class="token-key">focus</span>: [
+    <span class="token-string">"Obsidian"</span>,
+    <span class="token-string">"Python"</span>,
+    <span class="token-string">"AI Tools"</span>
+  ],
+  <span class="token-key">current</span>: <span class="token-string">"Building tools"</span>
+};</pre>
       </div>
+    </div>
+  </header>
 
-      <div class="divider"></div>
-
-      <div class="skills-section">
-        <h3>技能特长</h3>
-        <div class="skill-item">
-          <span class="skill-name">语文</span>
-          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">数学</span>
-          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">英语</span>
-          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Python编程</span>
-          <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
-        </div>
+  <main class="main">
+    <section class="section" id="skills">
+      <div class="section-header">
+        <span class="section-id">01</span>
+        <h2>// Skills</h2>
       </div>
-
-      <div class="divider"></div>
-
-      <div class="hobby-section">
-        <h3>兴趣爱好</h3>
-        <div class="hobby-tags">
-          <span class="hobby-tag">📚 阅读</span>
-          <span class="hobby-tag">💻 编程</span>
-          <span class="hobby-tag">🎵 音乐</span>
-          <span class="hobby-tag">⚽ 运动</span>
-        </div>
-      </div>
-    </aside>
-
-    <!-- 右侧内容 -->
-    <main class="main-content">
-      <!-- 关于我 -->
-      <section class="section-card fade-in">
-        <div class="section-header">
-          <span class="section-num">01</span>
-          <h2>关于我</h2>
-        </div>
-        <p>无</p>
-      </section>
-
-      <!-- 获奖经历 -->
-      <section class="section-card fade-in">
-        <div class="section-header">
-          <span class="section-num">02</span>
-          <h2>获奖经历</h2>
-        </div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <span class="timeline-year">2024</span>
-              <h4></h4>
-              <p></p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <span class="timeline-year">2024</span>
-              <h4></h4>
-              <p></p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <span class="timeline-year">2023</span>
-              <h4></h4>
-              <p></p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <span class="skill-icon">⌨</span>
+          <div>
+            <h3>Languages</h3>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">SQL</span>
             </div>
           </div>
         </div>
-      </section>
-
-      <!-- 学习经历 -->
-      <section class="section-card fade-in">
-        <div class="section-header">
-          <span class="section-num">03</span>
-          <h2>学习经历</h2>
-        </div>
-        <div class="experience-grid">
-          <div class="exp-card">
-            <span class="exp-period">2022 - 2025</span>
-            <h4></h4>
-            <p></p>
+        <div class="skill-card">
+          <span class="skill-icon">⚙</span>
+          <div>
+            <h3>Tools & DevOps</h3>
+            <div class="tags">
+              <span class="tag">Git</span>
+              <span class="tag">Docker</span>
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Linux</span>
+            </div>
           </div>
         </div>
-      </section>
-
-      <!-- 自我评价 -->
-      <section class="section-card fade-in">
-        <div class="section-header">
-          <span class="section-num">04</span>
-          <h2>自我评价</h2>
+        <div class="skill-card">
+          <span class="skill-icon">✦</span>
+          <div>
+            <h3>AI & Automation</h3>
+            <div class="tags">
+              <span class="tag">LLM / RAG</span>
+              <span class="tag">Obsidian</span>
+              <span class="tag">Hermes Agent</span>
+              <span class="tag">n8n</span>
+              <span class="tag">Playwright</span>
+            </div>
+          </div>
         </div>
-        <div class="quote-box">
-          <p></p>
-        </div>
-      </section>
-    </main>
-  </div>
+      </div>
+    </section>
 
-  <footer>
-    <p>👋 感谢查看 · 最后更新于 2026年5月</p>
+    <section class="section" id="projects">
+      <div class="section-header">
+        <span class="section-id">02</span>
+        <h2>// Projects</h2>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-icon">📦</span>
+            <span class="project-type">Open Source</span>
+          </div>
+          <h3>obsidian-vault</h3>
+          <p>个人知识库工作流，结合 Obsidian + Hermes Agent，实现从抖音内容采集到知识沉淀的全链路。</p>
+          <div class="project-tags">
+            <span>Obsidian</span>
+            <span>Markdown</span>
+            <span>Python</span>
+          </div>
+          <a href="https://github.com/Hongmingbo/obsidian-vault" class="project-link" target="_blank" rel="noopener">
+            <span class="arrow">→</span> View Repository
+          </a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-icon">📝</span>
+            <span class="project-type">Website</span>
+          </div>
+          <h3>Hongmingbo.github.io</h3>
+          <p>个人简历与作品集网站，基于纯 HTML/CSS 构建，托管于 GitHub Pages。</p>
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>GitHub Pages</span>
+          </div>
+          <a href="https://github.com/Hongmingbo/Hongmingbo.github.io" class="project-link" target="_blank" rel="noopener">
+            <span class="arrow">→</span> View Site
+          </a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-icon">🤖</span>
+            <span class="project-type">Tool</span>
+          </div>
+          <h3>we-mp-rss</h3>
+          <p>微信公众号/视频号 RSS 订阅工具，基于 Playwright 实现内容提取，支持自动推送。</p>
+          <div class="project-tags">
+            <span>Playwright</span>
+            <span>Python</span>
+            <span>RSS</span>
+          </div>
+          <a href="#" class="project-link">
+            <span class="arrow">→</span> Private Repo
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="writing">
+      <div class="section-header">
+        <span class="section-id">03</span>
+        <h2>// Writing</h2>
+      </div>
+      <div class="writing-list">
+        <article class="writing-item">
+          <span class="writing-date">2026-06</span>
+          <div>
+            <h3>记忆系统设计原则</h3>
+            <p>分层提炼、震动阈值、双轨记忆——如何构建有效的长期记忆体系</p>
+          </div>
+        </article>
+        <article class="writing-item">
+          <span class="writing-date">2026-06</span>
+          <div>
+            <h3>自托管监控三件套部署指南</h3>
+            <p>Uptime Kuma + Healthchecks + Netdata 在 Windows + Docker 环境下的实践</p>
+          </div>
+        </article>
+        <article class="writing-item">
+          <span class="writing-date">2026-05</span>
+          <div>
+            <h3>从零搭建 Cloudflare Tunnel</h3>
+            <p>WARP + DoH + HTTP/2 的兼容性踩坑记录与最终方案</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <span class="footer-prompt">$</span>
+      <span class="footer-text">Designed & built with minimalism in mind</span>
+      <span class="footer-cursor">_</span>
+    </div>
+    <p class="footer-copy">© 2026 Hmingbo. All rights reserved.</p>
   </footer>
+
+  <script>
+    // 终端光标闪烁
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+      .cursor { animation: blink 1s step-end infinite; color: var(--accent); }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
 </html>
