@@ -1,4 +1,4 @@
-// ========== Project Data (补充详细内容) ==========
+// ========== Project Data ==========
 const projects = {
   'obsidian-vault': {
     title: 'obsidian-vault',
@@ -156,10 +156,9 @@ function navigate(view) {
   const target = document.getElementById(routes[view]);
   if (target) {
     target.classList.add('active');
-    // Re-trigger reveal animations
     target.querySelectorAll('.reveal').forEach(el => {
       el.classList.remove('visible');
-      setTimeout(() => observeReveal(el), 100);
+      setTimeout(() => observeReveal(el), 150);
     });
   }
   window.location.hash = view;
@@ -211,7 +210,7 @@ function closeProject() {
   document.body.style.overflow = '';
 }
 
-// ========== Custom Cursor ==========
+// ========== Custom Cursor (slower follow) ==========
 const cursor = document.getElementById('cursor');
 const cursorDot = document.getElementById('cursorDot');
 let mouseX = 0, mouseY = 0;
@@ -220,20 +219,21 @@ let cursorX = 0, cursorY = 0;
 document.addEventListener('mousemove', (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
+  // Dot follows instantly
   cursorDot.style.left = mouseX + 'px';
   cursorDot.style.top = mouseY + 'px';
 });
 
 function animateCursor() {
-  cursorX += (mouseX - cursorX) * 0.15;
-  cursorY += (mouseY - cursorY) * 0.15;
+  // Slower lerp for smoother follow
+  cursorX += (mouseX - cursorX) * 0.08;
+  cursorY += (mouseY - cursorY) * 0.08;
   cursor.style.left = cursorX + 'px';
   cursor.style.top = cursorY + 'px';
   requestAnimationFrame(animateCursor);
 }
 animateCursor();
 
-// Hover effect on interactive elements
 const interactiveSelectors = 'a, button, .project-card, .skill-card, .writing-item, .contact-card, .tag, .menu-btn';
 document.addEventListener('mouseover', (e) => {
   if (e.target.closest(interactiveSelectors)) {
@@ -246,35 +246,67 @@ document.addEventListener('mouseout', (e) => {
   }
 });
 
-// ========== 3D Card Tilt ==========
+// ========== 3D Card Tilt (softer, damped) ==========
 document.querySelectorAll('.project-card').forEach(card => {
+  let targetRotateX = 0, targetRotateY = 0;
+  let currentRotateX = 0, currentRotateY = 0;
+  let isHovering = false;
+  
   card.addEventListener('mousemove', (e) => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const rotateX = (y - centerY) / 20;
-    const rotateY = (centerX - x) / 20;
     
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+    targetRotateX = (y - centerY) / 25;
+    targetRotateY = (centerX - x) / 25;
+    isHovering = true;
+    
     card.style.setProperty('--mouse-x', (x / rect.width) * 100 + '%');
     card.style.setProperty('--mouse-y', (y / rect.height) * 100 + '%');
   });
   
   card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
+    isHovering = false;
+    targetRotateX = 0;
+    targetRotateY = 0;
   });
+  
+  function animateTilt() {
+    if (isHovering) {
+      currentRotateX += (targetRotateX - currentRotateX) * 0.06;
+      currentRotateY += (targetRotateY - currentRotateY) * 0.06;
+    } else {
+      currentRotateX += (0 - currentRotateX) * 0.06;
+      currentRotateY += (0 - currentRotateY) * 0.06;
+    }
+    
+    const translateY = isHovering ? -8 : 0;
+    card.style.transform = `perspective(1000px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg) translateY(${translateY}px)`;
+    requestAnimationFrame(animateTilt);
+  }
+  animateTilt();
 });
 
-// ========== Hero Parallax ==========
+// ========== Hero Parallax (softer) ==========
 const heroVisual = document.getElementById('heroVisual');
 if (heroVisual) {
+  let targetX = 0, targetY = 0;
+  let currentX = 0, currentY = 0;
+  
   document.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 20;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
-    heroVisual.style.transform = `perspective(1000px) rotateY(${-5 + x * 0.3}deg) rotateX(${5 - y * 0.3}deg) translateX(${x * 0.5}px) translateY(${y * 0.5}px)`;
+    targetX = (e.clientX / window.innerWidth - 0.5) * 16;
+    targetY = (e.clientY / window.innerHeight - 0.5) * 16;
   });
+  
+  function animateParallax() {
+    currentX += (targetX - currentX) * 0.03;
+    currentY += (targetY - currentY) * 0.03;
+    heroVisual.style.transform = `perspective(1000px) rotateY(${-5 + currentX * 0.2}deg) rotateX(${5 - currentY * 0.2}deg) translateX(${currentX * 0.3}px) translateY(${currentY * 0.3}px)`;
+    requestAnimationFrame(animateParallax);
+  }
+  animateParallax();
 }
 
 // ========== Scroll Reveal ==========
@@ -286,22 +318,23 @@ function observeReveal(el) {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
   observer.observe(el);
 }
 
 document.querySelectorAll('.reveal').forEach(el => observeReveal(el));
 
-// ========== Header Scroll Effect ==========
+// ========== Header Scroll ==========
+let lastScroll = 0;
 window.addEventListener('scroll', () => {
   const header = document.getElementById('header');
-  header.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// ========== Scroll Indicator ==========
-window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
+  
+  header.classList.toggle('scrolled', currentScroll > 60);
+  lastScroll = currentScroll;
+  
   const indicator = document.getElementById('scrollIndicator');
-  indicator.classList.toggle('hidden', window.scrollY > 200);
+  indicator.classList.toggle('hidden', currentScroll > 200);
 });
 
 // ========== Init ==========
