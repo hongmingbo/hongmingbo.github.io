@@ -1,62 +1,42 @@
-// ========== Project Data ==========
+// ============================================
+// Project Data
+// ============================================
 const projects = {
   'obsidian-vault': {
     title: 'obsidian-vault',
-    type: '开源项目',
-    tags: ['Obsidian', 'Python', 'AI', 'Markdown', '知识管理'],
+    type: 'Open Source',
+    tags: ['Obsidian', 'Python', 'AI', 'Markdown', 'Knowledge'],
     detail: `
-      <h4>项目概述</h4>
+      <h4>Overview</h4>
       <p>个人知识库与内容创作工作流，结合 Obsidian + Hermes Agent，实现从抖音内容采集到知识沉淀的全链路自动化。</p>
-      <h4>核心功能</h4>
+      <h4>Features</h4>
       <ul>
         <li>4 文件夹结构：选题/竞品/方法论/灵感</li>
         <li>三层记忆体系：Global / Important / Temporary</li>
         <li>Markdown → Word/HTML/PDF 输出流水线</li>
         <li>零凭证规则 + 安全记忆管理</li>
       </ul>
-      <h4>技术亮点</h4>
-      <ul>
-        <li>Hermes Agent 集成：skills、profiles、memory store</li>
-        <li>Playwright WebKit 截图 + 内容提取</li>
-        <li>多格式文档转换</li>
-      </ul>
-      <h4>链接</h4>
+      <h4>Tech Stack</h4>
+      <p>Obsidian · Python · Hermes Agent · Playwright · Markdown</p>
+      <h4>Links</h4>
       <p><a href="https://github.com/Hongmingbo/obsidian-vault" target="_blank">github.com/Hongmingbo/obsidian-vault</a></p>
-    `
-  },
-  'portfolio': {
-    title: '个人作品集',
-    type: '网站',
-    tags: ['HTML/CSS', 'JavaScript', 'GitHub Pages', '设计'],
-    detail: `
-      <h4>项目概述</h4>
-      <p>个人作品集与简历网站，采用极简技术感设计，托管于 GitHub Pages。</p>
-      <h4>设计理念</h4>
-      <ul>
-        <li>暗色主题 + SVG 噪点纹理 + 渐变光晕</li>
-        <li>JetBrains Mono 等宽字体 + 终端风格 UI</li>
-        <li>顶部简洁横排导航 + 锚点滚动</li>
-        <li>自定义光标 + 卡片 3D 倾斜 + 滚动渐入</li>
-      </ul>
-      <h4>技术栈</h4>
-      <p>HTML5 · CSS3 (Grid/Flexbox) · Vanilla JavaScript · GitHub Pages</p>
     `
   },
   'we-mp-rss': {
     title: 'we-mp-rss',
-    type: '工具',
-    tags: ['Playwright', 'Python', 'RSS', '自动化', 'WebKit'],
+    type: 'Tool',
+    tags: ['Playwright', 'Python', 'RSS', 'WebKit'],
     detail: `
-      <h4>项目概述</h4>
+      <h4>Overview</h4>
       <p>微信公众号/视频号 RSS 订阅工具，基于 Playwright 实现内容自动提取。</p>
-      <h4>核心功能</h4>
+      <h4>Features</h4>
       <ul>
         <li>Playwright WebKit 无头浏览器截图 + 内容提取</li>
         <li>公众号文章正文提取（标题、作者、正文、图片）</li>
         <li>视频号内容解析 + 封面图提取</li>
         <li>RSS/JSON 输出 + 自动推送</li>
       </ul>
-      <h4>解决的挑战</h4>
+      <h4>Challenges Solved</h4>
       <ul>
         <li>Windows 环境下 WebKit 路径配置</li>
         <li>PORT 环境变量泄漏问题（Hermes Studio 占用 8748）</li>
@@ -64,19 +44,19 @@ const projects = {
     `
   },
   'monitoring': {
-    title: '监控系统',
-    type: '基础设施',
-    tags: ['Docker', '监控', '自托管', 'Uptime', 'Healthchecks'],
+    title: 'Monitoring Stack',
+    type: 'Infrastructure',
+    tags: ['Docker', 'Monitoring', 'Self-hosted', 'Uptime'],
     detail: `
-      <h4>项目概述</h4>
+      <h4>Overview</h4>
       <p>自托管监控三件套：Uptime Kuma + Healthchecks + Netdata。</p>
-      <h4>组件说明</h4>
+      <h4>Components</h4>
       <ul>
         <li><strong>Uptime Kuma</strong> — 服务可用性监控 + 多通道告警</li>
         <li><strong>Healthchecks</strong> — Cron 任务心跳监控 + 超时告警</li>
         <li><strong>Netdata</strong> — 实时系统指标可视化</li>
       </ul>
-      <h4>部署方案</h4>
+      <h4>Deployment</h4>
       <ul>
         <li>Docker Compose 一键启动</li>
         <li>Cloudflare Tunnel 内网穿透</li>
@@ -87,12 +67,12 @@ const projects = {
   },
   'cloudflared': {
     title: 'Cloudflare Tunnel',
-    type: '运维',
-    tags: ['Cloudflare', 'Docker', '网络', '安全', 'WARP'],
+    type: 'DevOps',
+    tags: ['Cloudflare', 'Docker', 'Network', 'WARP'],
     detail: `
-      <h4>项目概述</h4>
+      <h4>Overview</h4>
       <p>使用 Cloudflare Tunnel + WARP + DoH 实现 Docker 容器安全暴露到公网。</p>
-      <h4>关键决策与解决方案</h4>
+      <h4>Key Decisions</h4>
       <ul>
         <li><strong>版本锁定</strong>：Pin cloudflared:2024.5.0</li>
         <li><strong>协议强制</strong>：Force HTTP/2 top-level protocol</li>
@@ -103,13 +83,13 @@ const projects = {
     `
   },
   'memory-system': {
-    title: '记忆系统设计',
-    type: '设计',
-    tags: ['AI', '知识管理', '架构', '设计模式'],
+    title: 'Memory System',
+    type: 'Design',
+    tags: ['AI', 'Architecture', 'Knowledge Management'],
     detail: `
-      <h4>项目概述</h4>
+      <h4>Overview</h4>
       <p>为 AI Agent 设计的三层记忆架构，平衡存储效率与场景匹配。</p>
-      <h4>核心原则</h4>
+      <h4>Core Principles</h4>
       <ul>
         <li><strong>分层提炼</strong> — 原始→摘要→规律→画像逐层固化</li>
         <li><strong>震动阈值</strong> — 长期标签需频次/强度门槛</li>
@@ -117,30 +97,163 @@ const projects = {
         <li><strong>筛选优先</strong> — 遗忘策略比存储更重要</li>
         <li><strong>因果追踪</strong> — 记录偏好变化与冲突判别</li>
       </ul>
-      <h4>实现方案</h4>
+    `
+  },
+  'portfolio': {
+    title: 'This Portfolio',
+    type: 'Website',
+    tags: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+    detail: `
+      <h4>Overview</h4>
+      <p>极简技术感设计的个人作品集，参考 Lusion.co 设计语言。</p>
+      <h4>Design</h4>
       <ul>
-        <li><strong>Global</strong>：MEMORY.md — 跨项目、长期稳定</li>
-        <li><strong>Important</strong>：IMPORTANT-NOTES.md — 重要但场景限定</li>
-        <li><strong>Temporary</strong>：memory/YYYY-MM-DD.md — 7 天生命周期</li>
+        <li>暗色沉浸式主题 + 噪点纹理 + 渐变光晕</li>
+        <li>Canvas 3D 粒子背景</li>
+        <li>全屏 hero 大字 + scroll-driven 叙事</li>
+        <li>渐入渐出 + 数字递增动画</li>
+        <li>项目详情弹窗 + 跑马灯</li>
       </ul>
+      <h4>Tech</h4>
+      <p>HTML5 · CSS3 (Grid/Flexbox) · Vanilla JavaScript · Canvas API · GitHub Pages</p>
     `
   }
 };
 
-// ========== Project Modal ==========
+// ============================================
+// 3D 粒子背景 (Canvas)
+// ============================================
+class ParticleField {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.particles = [];
+    this.mouse = { x: -1000, y: -1000 };
+    this.scrollY = 0;
+
+    this.resize();
+    this.init();
+    this.bindEvents();
+    this.animate();
+  }
+
+  resize() {
+    this.dpr = Math.min(window.devicePixelRatio || 1, 2);
+    this.w = window.innerWidth;
+    this.h = window.innerHeight;
+    this.canvas.width = this.w * this.dpr;
+    this.canvas.height = this.h * this.dpr;
+    this.canvas.style.width = this.w + 'px';
+    this.canvas.style.height = this.h + 'px';
+    this.ctx.scale(this.dpr, this.dpr);
+  }
+
+  init() {
+    const count = Math.min(80, Math.floor((this.w * this.h) / 18000));
+    this.particles = [];
+    for (let i = 0; i < count; i++) {
+      this.particles.push({
+        x: Math.random() * this.w,
+        y: Math.random() * this.h,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 1.5 + 0.5,
+        baseAlpha: Math.random() * 0.5 + 0.2
+      });
+    }
+  }
+
+  bindEvents() {
+    window.addEventListener('resize', () => { this.resize(); this.init(); });
+    window.addEventListener('mousemove', (e) => {
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
+    });
+    window.addEventListener('scroll', () => {
+      this.scrollY = window.scrollY;
+    }, { passive: true });
+  }
+
+  animate() {
+    const ctx = this.ctx;
+    const { w, h, mouse, particles, scrollY } = this;
+
+    ctx.clearRect(0, 0, w, h);
+
+    // 视差偏移（基于滚动）
+    const offsetY = scrollY * 0.15;
+
+    // 更新粒子位置
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+
+      p.x += p.vx;
+      p.y += p.vy - 0.2; // 缓慢上飘
+
+      // 边界检测
+      if (p.x < 0) p.x = w;
+      if (p.x > w) p.x = 0;
+      if (p.y < -50) p.y = h + 50;
+      if (p.y > h + 50) p.y = -50;
+
+      // 鼠标排斥
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y - offsetY;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 100) {
+        const force = (100 - dist) / 100;
+        p.x += (dx / dist) * force * 1.5;
+        p.y += (dy / dist) * force * 1.5;
+      }
+
+      // 绘制
+      const drawY = p.y + offsetY;
+      ctx.beginPath();
+      ctx.arc(p.x, drawY, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(129, 140, 248, ${p.baseAlpha})`;
+      ctx.fill();
+    }
+
+    // 连接线（粒子之间）
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i];
+        const b = particles[j];
+        const dx = a.x - b.x;
+        const ay = (a.y + offsetY) - (b.y + offsetY);
+        const dist = Math.sqrt(dx * dx + ay * ay);
+        if (dist < 120) {
+          const alpha = (1 - dist / 120) * 0.15;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y + offsetY);
+          ctx.lineTo(b.x, b.y + offsetY);
+          ctx.strokeStyle = `rgba(129, 140, 248, ${alpha})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(() => this.animate());
+  }
+}
+
+// ============================================
+// Project Modal
+// ============================================
 function openProject(id) {
   const modal = document.getElementById('projectModal');
   const content = document.getElementById('modalContent');
   const project = projects[id];
   if (!project) return;
-  
+
   content.innerHTML = `
     <button class="modal-close" onclick="closeProject()">✕</button>
     <h2>${project.title}</h2>
     <p class="modal-meta">${project.tags.map(t => `<span>${t}</span>`).join(' · ')}</p>
     <div class="modal-body">${project.detail}</div>
   `;
-  
+
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
@@ -150,27 +263,28 @@ function closeProject() {
   document.body.style.overflow = '';
 }
 
-// ========== Smooth Scroll to Anchor ==========
-function scrollToSection(id) {
-  const target = document.getElementById(id);
-  if (!target) return;
-  const top = target.getBoundingClientRect().top + window.scrollY;
-  window.scrollTo({ top, behavior: 'smooth' });
-}
-
+// ============================================
+// Smooth Anchor Scroll
+// ============================================
 document.addEventListener('click', (e) => {
   const link = e.target.closest('a[href^="#"]');
   if (!link) return;
   const hash = link.getAttribute('href');
   if (hash && hash.length > 1) {
-    e.preventDefault();
     const id = hash.slice(1);
-    scrollToSection(id);
-    history.pushState(null, '', hash);
+    const target = document.getElementById(id);
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top, behavior: 'smooth' });
+      history.pushState(null, '', hash);
+    }
   }
 });
 
-// ========== Custom Cursor ==========
+// ============================================
+// Custom Cursor (柔和)
+// ============================================
 const cursor = document.getElementById('cursor');
 const cursorDot = document.getElementById('cursorDot');
 let mouseX = 0, mouseY = 0;
@@ -192,7 +306,7 @@ function animateCursor() {
 }
 animateCursor();
 
-const interactiveSelectors = 'a, button, .project-card, .expertise-card, .content-list li, .contact-card, .cta-btn, .nav-cta';
+const interactiveSelectors = 'a, button, .project-card, .manifesto-tags span, .cta-btn, .nav-cta, .stat-item, .marquee-item';
 document.addEventListener('mouseover', (e) => {
   if (e.target.closest(interactiveSelectors)) cursor.classList.add('hover');
 });
@@ -200,12 +314,14 @@ document.addEventListener('mouseout', (e) => {
   if (e.target.closest(interactiveSelectors)) cursor.classList.remove('hover');
 });
 
-// ========== 3D Card Tilt ==========
+// ============================================
+// 3D Card Tilt (Project Cards)
+// ============================================
 document.querySelectorAll('.project-card').forEach(card => {
   let targetRotateX = 0, targetRotateY = 0;
   let currentRotateX = 0, currentRotateY = 0;
   let isHovering = false;
-  
+
   card.addEventListener('mousemove', (e) => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -216,29 +332,54 @@ document.querySelectorAll('.project-card').forEach(card => {
     targetRotateY = (centerX - x) / 30;
     isHovering = true;
   });
-  
+
   card.addEventListener('mouseleave', () => {
     isHovering = false;
     targetRotateX = 0;
     targetRotateY = 0;
   });
-  
+
   function animateTilt() {
     if (isHovering) {
-      currentRotateX += (targetRotateX - currentRotateX) * 0.06;
-      currentRotateY += (targetRotateY - currentRotateY) * 0.06;
+      currentRotateX += (targetRotateX - currentRotateX) * 0.08;
+      currentRotateY += (targetRotateY - currentRotateY) * 0.08;
     } else {
-      currentRotateX += (0 - currentRotateX) * 0.06;
-      currentRotateY += (0 - currentRotateY) * 0.06;
+      currentRotateX += (0 - currentRotateX) * 0.08;
+      currentRotateY += (0 - currentRotateY) * 0.08;
     }
-    const translateY = isHovering ? -6 : 0;
-    card.style.transform = `perspective(1000px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg) translateY(${translateY}px)`;
+    const translateZ = isHovering ? 20 : 0;
+    const translateY = isHovering ? -8 : 0;
+    card.style.transform = `perspective(1200px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg) translateY(${translateY}px) translateZ(${translateZ}px)`;
     requestAnimationFrame(animateTilt);
   }
   animateTilt();
 });
 
-// ========== Scroll Reveal ==========
+// ============================================
+// Orb Parallax (跟随鼠标)
+// ============================================
+const orb1 = document.querySelector('.orb-1');
+const orb2 = document.querySelector('.orb-2');
+let orbX = 0, orbY = 0;
+let currentOrbX = 0, currentOrbY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  orbX = (e.clientX / window.innerWidth - 0.5) * 40;
+  orbY = (e.clientY / window.innerHeight - 0.5) * 40;
+});
+
+function animateOrbs() {
+  currentOrbX += (orbX - currentOrbX) * 0.05;
+  currentOrbY += (orbY - currentOrbY) * 0.05;
+  if (orb1) orb1.style.transform = `translate(${currentOrbX}px, ${currentOrbY}px)`;
+  if (orb2) orb2.style.transform = `translate(${-currentOrbX}px, ${-currentOrbY}px)`;
+  requestAnimationFrame(animateOrbs);
+}
+animateOrbs();
+
+// ============================================
+// Scroll Reveal
+// ============================================
 function observeReveal(el) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -253,18 +394,21 @@ function observeReveal(el) {
 
 document.querySelectorAll('.reveal').forEach(el => observeReveal(el));
 
-// ========== Counter Animation ==========
+// ============================================
+// Counter Animation
+// ============================================
 const counterObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const el = entry.target;
       const target = parseInt(el.dataset.target, 10);
-      const duration = 1600;
+      const duration = 1800;
       const start = performance.now();
-      
+
       function tick(now) {
         const elapsed = now - start;
         const t = Math.min(1, elapsed / duration);
+        // ease-out cubic
         const eased = 1 - Math.pow(1 - t, 3);
         el.textContent = Math.floor(eased * target);
         if (t < 1) requestAnimationFrame(tick);
@@ -278,11 +422,13 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 
-// ========== Magnetic Button ==========
+// ============================================
+// Magnetic Button
+// ============================================
 document.querySelectorAll('.magnetic').forEach(el => {
   let currentX = 0, currentY = 0;
   let targetX = 0, targetY = 0;
-  
+
   function animate() {
     currentX += (targetX - currentX) * 0.18;
     currentY += (targetY - currentY) * 0.18;
@@ -290,7 +436,7 @@ document.querySelectorAll('.magnetic').forEach(el => {
     requestAnimationFrame(animate);
   }
   animate();
-  
+
   el.addEventListener('mousemove', (e) => {
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -298,65 +444,76 @@ document.querySelectorAll('.magnetic').forEach(el => {
     targetX = x * 0.3;
     targetY = y * 0.3;
   });
-  
+
   el.addEventListener('mouseleave', () => {
     targetX = 0;
     targetY = 0;
   });
 });
 
-// ========== Loading Screen ==========
+// ============================================
+// Loading Screen
+// ============================================
 (function initLoader() {
   const loader = document.getElementById('loader');
   const fill = document.getElementById('loaderFill');
   const num = document.getElementById('loaderNum');
   const percent = document.getElementById('loaderPercent');
   if (!loader) return;
-  
+
   let progress = 0;
   const duration = 1800;
   const start = performance.now();
-  
+
   function step(now) {
     const elapsed = now - start;
     progress = Math.min(100, (elapsed / duration) * 100);
     const eased = 1 - Math.pow(1 - progress / 100, 3);
     const value = Math.floor(eased * 100);
-    
+
     fill.style.width = value + '%';
     num.textContent = value;
     percent.textContent = value + '%';
-    
+
     if (progress < 100) requestAnimationFrame(step);
     else setTimeout(() => loader.classList.add('hidden'), 200);
   }
   requestAnimationFrame(step);
 })();
 
-// ========== Scroll Listener (header + progress + hint) ==========
+// ============================================
+// Scroll Listener
+// ============================================
 window.addEventListener('scroll', () => {
-  // Header scroll state
+  // Header state
   document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
-  
-  // Scroll progress bar
+
+  // Progress bar
   const progress = document.getElementById('scrollProgress');
   if (progress) {
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? window.scrollY / docHeight : 0;
     progress.style.transform = `scaleX(${pct})`;
   }
-  
+
   // Scroll hint
   const hint = document.getElementById('scrollHint');
   if (hint) hint.classList.toggle('hidden', window.scrollY > window.innerHeight * 0.3);
 }, { passive: true });
 
-// ========== Init ==========
+// ============================================
+// Init
+// ============================================
 document.addEventListener('DOMContentLoaded', () => {
+  // Particle field
+  const canvas = document.getElementById('particles');
+  if (canvas) new ParticleField(canvas);
+
+  // Modal events
   document.getElementById('projectModal').addEventListener('click', (e) => {
     if (e.target.id === 'projectModal') closeProject();
   });
-  
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeProject();
   });

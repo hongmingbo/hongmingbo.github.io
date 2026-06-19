@@ -3,22 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hmingbo — 开发者与创造者</title>
+  <title>Hmingbo — Developer & Creator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Custom Cursor -->
+  <!-- 动态粒子背景 (3D 元素) -->
+  <canvas id="particles"></canvas>
+
+  <!-- 自定义光标 -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-dot" id="cursorDot"></div>
 
-  <!-- Loading Screen -->
+  <!-- 加载屏 -->
   <div class="loader" id="loader">
     <div class="loader-content">
       <p class="loader-text">
-        <span>正在加载</span>
+        <span>Loading</span>
         <span id="loaderPercent">0%</span>
       </p>
       <div class="loader-percent" id="loaderNum">0</div>
@@ -29,90 +32,91 @@
     </div>
   </div>
 
-  <!-- Scroll Progress Bar -->
+  <!-- 顶部进度条 -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Background Effects -->
+  <!-- 噪点纹理 -->
   <div class="noise"></div>
+
+  <!-- 渐变光晕 -->
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
 
-  <!-- Top Menu Bar (Lusion.co style: 简洁横排导航) -->
+  <!-- 顶部导航 -->
   <header class="header" id="header">
-    <a href="#hero" class="logo" data-nav="hero">H<span>.</span>mingbo</a>
+    <a href="#hero" class="logo">H<span>.</span>mingbo</a>
     <nav class="top-nav">
-      <a href="#manifesto">关于</a>
-      <a href="#featured">项目</a>
-      <a href="#expertise">领域</a>
-      <a href="#writing">文章</a>
-      <a href="#contact" class="nav-cta">联系 →</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Let's talk →</a>
     </nav>
   </header>
 
-  <!-- Scroll Hint -->
+  <!-- 左下角滚动提示 -->
   <div class="scroll-hint" id="scrollHint">
-    <span>向下滚动</span>
+    <span>Scroll to explore</span>
     <div class="scroll-hint-line"></div>
   </div>
 
   <main id="app">
 
-    <!-- HERO SECTION: Lusion.co 大字分多行排版 -->
+    <!-- HERO -->
     <section class="section section-hero" id="hero">
       <div class="hero-content">
-        <p class="hero-tagline">$ whoami</p>
+        <p class="hero-tagline">Developer · Creator · Learner</p>
         <h1 class="hero-title">
-          <span class="hero-line">我是</span>
-          <span class="hero-line"><span class="accent">开发者</span> 与</span>
-          <span class="hero-line"><span class="accent">创造者</span></span>
+          <span class="hero-line">Bold <span class="accent">ideas</span>,</span>
+          <span class="hero-line">brought to <span class="accent">life</span>.</span>
         </h1>
         <p class="hero-subtitle">
-          构建高效工具，沉淀知识体系。
+          Building tools that compound. <br>
+          Crafting workflows that think. <br>
+          Documenting knowledge that lasts.
         </p>
-      </div>
-      <div class="hero-side">
-        <p class="hero-meta">$ cat profile.json</p>
-        <pre class="code-block"><span class="token-keyword">const</span> <span class="token-var">profile</span> = {
-  <span class="token-key">name</span>: <span class="token-string">"Hmingbo"</span>,
-  <span class="token-key">role</span>: <span class="token-string">"Developer & Creator"</span>,
-  <span class="token-key">location</span>: <span class="token-string">"中国"</span>,
-  <span class="token-key">focus</span>: [
-    <span class="token-string">"Obsidian 工作流"</span>,
-    <span class="token-string">"AI 自动化"</span>,
-    <span class="token-string">"自托管工具"</span>
-  ]
-};</pre>
+        <div class="hero-meta">
+          <span class="hero-meta-item">$ whoami</span>
+          <span class="hero-meta-divider">/</span>
+          <span class="hero-meta-item">Hmingbo</span>
+          <span class="hero-meta-divider">/</span>
+          <span class="hero-meta-item">China</span>
+        </div>
       </div>
     </section>
 
-    <!-- MANIFESTO SECTION: 长描述 -->
-    <section class="section section-manifesto" id="manifesto">
+    <!-- MANIFESTO (Bold Ideas, Brought to Life) -->
+    <section class="section section-manifesto" id="about">
       <div class="manifesto-content">
-        <p class="manifesto-line reveal">
-          一个专注于<strong>知识管理、AI 自动化</strong>与
-          <strong>自托管基础设施</strong>的个人开发者。
-        </p>
+        <h2 class="manifesto-eyebrow reveal">// About</h2>
         <p class="manifesto-line reveal reveal-delay-1">
-          从 <strong>抖音内容采集</strong> 到 <strong>Obsidian 知识沉淀</strong>，
-          <br>从 <strong>微信公众号抓取</strong> 到 <strong>Markdown 输出流水线</strong>，
+          We combine <strong>knowledge management</strong>, <strong>AI automation</strong>,
+          and <strong>self-hosted infrastructure</strong> to create digital workflows
+          that feel visually distinct and technically seamless.
         </p>
         <p class="manifesto-line reveal reveal-delay-2">
-          致力于让工具<strong>复利</strong>，让知识<strong>可复用</strong>，
-          <br>让个人基础设施<strong>自主可控</strong>。
+          From content capture to knowledge preservation,
+          <br>every tool is built to <strong>compound</strong> over time.
         </p>
+        <div class="manifesto-tags reveal reveal-delay-3">
+          <span>Obsidian</span>
+          <span>Python</span>
+          <span>AI Automation</span>
+          <span>Self-hosted</span>
+          <span>Docker</span>
+          <span>Cloudflare</span>
+        </div>
       </div>
     </section>
 
-    <!-- FEATURED PROJECTS SECTION -->
-    <section class="section section-featured" id="featured">
-      <div class="section-header reveal">
-        <span class="section-id">01</span>
-        <h2>// Featured Work</h2>
+    <!-- FEATURED WORK -->
+    <section class="section section-work" id="work">
+      <div class="work-header">
+        <h2 class="work-title reveal">Featured Work</h2>
+        <p class="work-subtitle reveal reveal-delay-1">
+          A selection of tools and projects built for knowledge workers,
+          automation enthusiasts, and self-hosting advocates.
+        </p>
       </div>
-      <p class="section-desc reveal reveal-delay-1">
-        涵盖知识管理、自动化工具与个人基础设施的精选项目。
-      </p>
+
       <div class="projects-grid">
         <article class="project-card reveal reveal-delay-1" onclick="openProject('obsidian-vault')">
           <div class="project-tags-top">
@@ -120,7 +124,7 @@
           </div>
           <h3 class="project-title">obsidian-vault</h3>
           <p class="project-desc">Obsidian + Hermes Agent 个人知识库，实现从内容采集到知识沉淀的全链路自动化。</p>
-          <div class="project-view">查看详情 <span class="arrow">→</span></div>
+          <div class="project-view">View Details <span class="arrow">→</span></div>
         </article>
 
         <article class="project-card reveal reveal-delay-2" onclick="openProject('we-mp-rss')">
@@ -129,76 +133,74 @@
           </div>
           <h3 class="project-title">we-mp-rss</h3>
           <p class="project-desc">微信公众号/视频号 RSS 订阅工具，基于 Playwright 实现内容自动提取。</p>
-          <div class="project-view">查看详情 <span class="arrow">→</span></div>
+          <div class="project-view">View Details <span class="arrow">→</span></div>
         </article>
 
         <article class="project-card reveal reveal-delay-3" onclick="openProject('monitoring')">
           <div class="project-tags-top">
-            <span>docker</span><span>监控</span><span>自托管</span>
+            <span>docker</span><span>monitoring</span><span>self-hosted</span>
           </div>
-          <h3 class="project-title">监控系统</h3>
-          <p class="project-desc">Uptime Kuma + Healthchecks + Netdata 自托管监控三件套，Docker Compose 部署。</p>
-          <div class="project-view">查看详情 <span class="arrow">→</span></div>
+          <h3 class="project-title">Monitoring Stack</h3>
+          <p class="project-desc">Uptime Kuma + Healthchecks + Netdata 自托管监控三件套，Docker Compose 一键部署。</p>
+          <div class="project-view">View Details <span class="arrow">→</span></div>
         </article>
 
         <article class="project-card reveal reveal-delay-4" onclick="openProject('cloudflared')">
           <div class="project-tags-top">
-            <span>cloudflare</span><span>docker</span><span>网络</span>
+            <span>cloudflare</span><span>docker</span><span>network</span>
           </div>
           <h3 class="project-title">Cloudflare Tunnel</h3>
           <p class="project-desc">WARP + DoH + HTTP/2 兼容方案，实现 Docker 容器安全暴露到公网。</p>
-          <div class="project-view">查看详情 <span class="arrow">→</span></div>
+          <div class="project-view">View Details <span class="arrow">→</span></div>
         </article>
 
         <article class="project-card reveal reveal-delay-1" onclick="openProject('memory-system')">
           <div class="project-tags-top">
-            <span>ai</span><span>设计</span><span>架构</span>
+            <span>ai</span><span>architecture</span><span>design</span>
           </div>
-          <h3 class="project-title">记忆系统设计</h3>
-          <p class="project-desc">分层提炼、震动阈值、双轨记忆——构建有效的长期记忆体系。</p>
-          <div class="project-view">查看详情 <span class="arrow">→</span></div>
+          <h3 class="project-title">Memory System</h3>
+          <p class="project-desc">分层提炼、震动阈值、双轨记忆——构建有效的长期记忆体系与 Agent 记忆管理。</p>
+          <div class="project-view">View Details <span class="arrow">→</span></div>
         </article>
 
         <article class="project-card reveal reveal-delay-2" onclick="openProject('portfolio')">
           <div class="project-tags-top">
-            <span>html/css</span><span>javascript</span><span>设计</span>
+            <span>html</span><span>css</span><span>js</span>
           </div>
-          <h3 class="project-title">个人作品集</h3>
-          <p class="project-desc">极简技术感设计的个人简历与作品集网站，托管于 GitHub Pages。</p>
-          <div class="project-view">查看详情 <span class="arrow">→</span></div>
+          <h3 class="project-title">This Portfolio</h3>
+          <p class="project-desc">极简技术感设计的个人作品集，参考 Lusion.co 设计语言，托管于 GitHub Pages。</p>
+          <div class="project-view">View Details <span class="arrow">→</span></div>
         </article>
       </div>
 
-      <!-- 项目数字 -->
-      <div class="numbers-grid reveal">
-        <div class="number-item">
-          <div class="number-num"><span class="counter" data-target="6">0</span>+</div>
-          <div class="number-label">开源项目</div>
+      <!-- 数字统计 -->
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <div class="stat-num"><span class="counter" data-target="6">0</span>+</div>
+          <div class="stat-label">Projects</div>
         </div>
-        <div class="number-item">
-          <div class="number-num"><span class="counter" data-target="5">0</span>+</div>
-          <div class="number-label">技术文章</div>
+        <div class="stat-item">
+          <div class="stat-num"><span class="counter" data-target="5">0</span>+</div>
+          <div class="stat-label">Articles</div>
         </div>
-        <div class="number-item">
-          <div class="number-num"><span class="counter" data-target="12">0</span>+</div>
-          <div class="number-label">技术栈</div>
+        <div class="stat-item">
+          <div class="stat-num"><span class="counter" data-target="12">0</span>+</div>
+          <div class="stat-label">Tech Stack</div>
         </div>
-        <div class="number-item">
-          <div class="number-num"><span class="counter" data-target="3">0</span>+</div>
-          <div class="number-label">自托管服务</div>
+        <div class="stat-item">
+          <div class="stat-num"><span class="counter" data-target="3">0</span>+</div>
+          <div class="stat-label">Services</div>
         </div>
       </div>
     </section>
 
-    <!-- TECH STACK MARQUEE (替换 BRANDS WE WORK WITH) -->
+    <!-- TECH STACK MARQUEE -->
     <section class="section section-marquee">
       <div class="marquee-block">
-        <p class="marquee-title reveal">技术栈生态</p>
-        <p class="marquee-subtitle reveal reveal-delay-1">
-          日常使用的工具与平台
-        </p>
+        <p class="marquee-eyebrow reveal">Tech Stack</p>
+        <p class="marquee-subtitle reveal reveal-delay-1">Tools and platforms used daily</p>
       </div>
-      <div class="marquee reveal">
+      <div class="marquee">
         <div class="marquee-track">
           <span class="marquee-item">Python<span class="dot"></span></span>
           <span class="marquee-item">JavaScript<span class="dot"></span></span>
@@ -210,7 +212,6 @@
           <span class="marquee-item">Linux<span class="dot"></span></span>
           <span class="marquee-item">Git<span class="dot"></span></span>
           <span class="marquee-item">VS Code<span class="dot"></span></span>
-          <!-- 复制一份以实现无缝循环 -->
           <span class="marquee-item">Python<span class="dot"></span></span>
           <span class="marquee-item">JavaScript<span class="dot"></span></span>
           <span class="marquee-item">TypeScript<span class="dot"></span></span>
@@ -225,162 +226,43 @@
       </div>
     </section>
 
-    <!-- EXPERTISE SECTION (替换 AREA OF EXPERTISE) -->
-    <section class="section section-expertise" id="expertise">
-      <div class="expertise-header reveal">
-        <h2>领域专长</h2>
-        <p>跨技术栈的复合能力体系</p>
-      </div>
-      <div class="expertise-grid">
-        <div class="expertise-card reveal reveal-delay-1">
-          <div class="expertise-num">01</div>
-          <h3>知识管理</h3>
-          <ul>
-            <li>Obsidian 工作流设计</li>
-            <li>三层记忆体系架构</li>
-            <li>Markdown 写作与发布</li>
-            <li>个人知识库方法论</li>
-          </ul>
-        </div>
-        <div class="expertise-card reveal reveal-delay-2">
-          <div class="expertise-num">02</div>
-          <h3>AI 自动化</h3>
-          <ul>
-            <li>LLM / RAG 应用开发</li>
-            <li>Hermes Agent 集成</li>
-            <li>Playwright 网页自动化</li>
-            <li>智能体工作流编排</li>
-          </ul>
-        </div>
-        <div class="expertise-card reveal reveal-delay-3">
-          <div class="expertise-num">03</div>
-          <h3>自托管</h3>
-          <ul>
-            <li>Docker Compose 部署</li>
-            <li>Cloudflare Tunnel 穿透</li>
-            <li>监控系统运维</li>
-            <li>WARP / DoH 网络方案</li>
-          </ul>
-        </div>
-        <div class="expertise-card reveal reveal-delay-4">
-          <div class="expertise-num">04</div>
-          <h3>开发实践</h3>
-          <ul>
-            <li>Python / TypeScript</li>
-            <li>GitHub Actions CI/CD</li>
-            <li>Git 版本控制</li>
-            <li>技术文档与知识分享</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- WRITING + TALKS SECTION -->
-    <section class="section section-content" id="writing">
-      <div class="content-grid">
-        <!-- 精选文章 -->
-        <div class="content-block">
-          <div class="block-header reveal">
-            <span class="block-num">03</span>
-            <h3>精选文章</h3>
-            <span class="block-count">5</span>
-          </div>
-          <ul class="content-list">
-            <li class="reveal reveal-delay-1">
-              <a href="#">记忆系统设计原则</a>
-              <span class="content-date">2026-06</span>
-            </li>
-            <li class="reveal reveal-delay-2">
-              <a href="#">自托管监控三件套部署指南</a>
-              <span class="content-date">2026-06</span>
-            </li>
-            <li class="reveal reveal-delay-3">
-              <a href="#">从零搭建 Cloudflare Tunnel</a>
-              <span class="content-date">2026-06</span>
-            </li>
-            <li class="reveal reveal-delay-4">
-              <a href="#">Hermes Agent 记忆系统实践</a>
-              <span class="content-date">2026-05</span>
-            </li>
-            <li class="reveal reveal-delay-1">
-              <a href="#">Windows 自托管服务部署模式</a>
-              <span class="content-date">2026-05</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Talks / 学习时间线 -->
-        <div class="content-block">
-          <div class="block-header reveal">
-            <span class="block-num">04</span>
-            <h3>学习路径</h3>
-            <span class="block-count">5</span>
-          </div>
-          <ul class="content-list talks-list">
-            <li class="reveal reveal-delay-1">
-              <span class="content-date">2026-06</span>
-              <span>Obsidian + Hermes Agent 知识库体系</span>
-            </li>
-            <li class="reveal reveal-delay-2">
-              <span class="content-date">2026-05</span>
-              <span>Cloudflare Tunnel + WARP 网络方案</span>
-            </li>
-            <li class="reveal reveal-delay-3">
-              <span class="content-date">2026-05</span>
-              <span>自托管监控三件套部署</span>
-            </li>
-            <li class="reveal reveal-delay-4">
-              <span class="content-date">2026-04</span>
-              <span>AI Agent 长期记忆架构</span>
-            </li>
-            <li class="reveal reveal-delay-1">
-              <span class="content-date">2026-04</span>
-              <span>Markdown → 多格式输出流水线</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA SECTION -->
-    <section class="section section-cta">
+    <!-- CTA SECTION (Is Your Big Idea Ready to Go Wild?) -->
+    <section class="section section-cta" id="contact">
       <div class="cta-content reveal">
-        <h2 class="cta-title">有想法？<br><span class="accent">一起实现。</span></h2>
-        <p class="cta-desc">项目合作 / 技术交流 / 工具需求 都可以聊。</p>
+        <h2 class="cta-title">
+          Is your next project <br>
+          ready to go <span class="accent">wild</span>?
+        </h2>
+        <p class="cta-desc">
+          Step into a new world and let your imagination run wild.
+        </p>
         <a href="mailto:hongmingbo2011@qq.com" class="cta-btn magnetic">
-          联系我 →
+          Let's work together →
         </a>
-      </div>
-    </section>
-
-    <!-- CONTACT FOOTER SECTION -->
-    <section class="section section-contact" id="contact">
-      <div class="contact-grid">
-        <div class="contact-card reveal reveal-delay-1">
-          <h4>邮箱</h4>
-          <a href="mailto:hongmingbo2011@qq.com">hongmingbo2011@qq.com</a>
-        </div>
-        <div class="contact-card reveal reveal-delay-2">
-          <h4>GitHub</h4>
-          <a href="https://github.com/Hongmingbo" target="_blank" rel="noopener">@Hongmingbo</a>
-        </div>
-        <div class="contact-card reveal reveal-delay-3">
-          <h4>位置</h4>
-          <p>中国</p>
-        </div>
-        <div class="contact-card reveal reveal-delay-4">
-          <h4>状态</h4>
-          <p style="color: var(--green);">● 开放合作机会</p>
+        <div class="cta-social">
+          <a href="https://github.com/Hongmingbo" target="_blank" rel="noopener">GitHub</a>
+          <span class="cta-divider">·</span>
+          <a href="mailto:hongmingbo2011@qq.com">Email</a>
+          <span class="cta-divider">·</span>
+          <a href="#hero">Back to top ↑</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Project Detail Modal -->
+  <!-- 项目详情弹窗 -->
   <div class="modal-overlay" id="projectModal">
     <div class="modal" id="modalContent"></div>
   </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-text">© 2026 Hmingbo. Designed with Lusion.co aesthetic.</p>
+      <p class="footer-meta">Built with HTML · CSS · JavaScript</p>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>
