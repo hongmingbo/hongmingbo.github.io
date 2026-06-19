@@ -1,120 +1,142 @@
 // ============================================
-// Project Data
+// Project Data (中文)
 // ============================================
 const projects = {
   'obsidian-vault': {
     title: 'obsidian-vault',
-    type: 'Open Source',
-    tags: ['Obsidian', 'Python', 'AI', 'Markdown', 'Knowledge'],
+    type: '开源项目',
+    tags: ['Obsidian', 'Python', 'AI', 'Markdown', '知识管理'],
     detail: `
-      <h4>Overview</h4>
+      <h4>项目概述</h4>
       <p>个人知识库与内容创作工作流，结合 Obsidian + Hermes Agent，实现从抖音内容采集到知识沉淀的全链路自动化。</p>
-      <h4>Features</h4>
+      <h4>核心功能</h4>
       <ul>
         <li>4 文件夹结构：选题/竞品/方法论/灵感</li>
         <li>三层记忆体系：Global / Important / Temporary</li>
         <li>Markdown → Word/HTML/PDF 输出流水线</li>
         <li>零凭证规则 + 安全记忆管理</li>
+        <li>会话结束协议：自动判断是否晋升为重要记忆</li>
       </ul>
-      <h4>Tech Stack</h4>
-      <p>Obsidian · Python · Hermes Agent · Playwright · Markdown</p>
-      <h4>Links</h4>
+      <h4>技术亮点</h4>
+      <ul>
+        <li>Hermes Agent 集成：skills、profiles、memory store 全链路打通</li>
+        <li>Playwright WebKit 截图 + 内容提取</li>
+        <li>多格式文档转换（mdstyle skill）</li>
+        <li>Obsidian vault 作为单一事实来源</li>
+      </ul>
+      <h4>链接</h4>
       <p><a href="https://github.com/Hongmingbo/obsidian-vault" target="_blank">github.com/Hongmingbo/obsidian-vault</a></p>
     `
   },
   'we-mp-rss': {
     title: 'we-mp-rss',
-    type: 'Tool',
-    tags: ['Playwright', 'Python', 'RSS', 'WebKit'],
+    type: '工具',
+    tags: ['Playwright', 'Python', 'RSS', '自动化', 'WebKit'],
     detail: `
-      <h4>Overview</h4>
-      <p>微信公众号/视频号 RSS 订阅工具，基于 Playwright 实现内容自动提取。</p>
-      <h4>Features</h4>
+      <h4>项目概述</h4>
+      <p>微信公众号/视频号 RSS 订阅工具，基于 Playwright 实现内容自动提取，支持自动推送。</p>
+      <h4>核心功能</h4>
       <ul>
         <li>Playwright WebKit 无头浏览器截图 + 内容提取</li>
         <li>公众号文章正文提取（标题、作者、正文、图片）</li>
         <li>视频号内容解析 + 封面图提取</li>
-        <li>RSS/JSON 输出 + 自动推送</li>
+        <li>RSS/JSON 输出 + 自动推送到订阅端</li>
+        <li>环境变量配置：PORT=8001、PLAYWRIGHT_BROWSERS_PATH</li>
       </ul>
-      <h4>Challenges Solved</h4>
+      <h4>解决的挑战</h4>
       <ul>
         <li>Windows 环境下 WebKit 路径配置</li>
         <li>PORT 环境变量泄漏问题（Hermes Studio 占用 8748）</li>
+        <li>Playwright 浏览器路径与 venv 隔离</li>
       </ul>
+      <h4>技术栈</h4>
+      <p>Python 3.13+ · Playwright · WebKit · RSS · Windows Service</p>
     `
   },
   'monitoring': {
-    title: 'Monitoring Stack',
-    type: 'Infrastructure',
-    tags: ['Docker', 'Monitoring', 'Self-hosted', 'Uptime'],
+    title: '监控系统',
+    type: '基础设施',
+    tags: ['Docker', '监控', '自托管', 'Uptime', 'Healthchecks'],
     detail: `
-      <h4>Overview</h4>
-      <p>自托管监控三件套：Uptime Kuma + Healthchecks + Netdata。</p>
-      <h4>Components</h4>
+      <h4>项目概述</h4>
+      <p>自托管监控三件套：Uptime Kuma + Healthchecks + Netdata，Docker Compose 一键部署。</p>
+      <h4>组件说明</h4>
       <ul>
-        <li><strong>Uptime Kuma</strong> — 服务可用性监控 + 多通道告警</li>
-        <li><strong>Healthchecks</strong> — Cron 任务心跳监控 + 超时告警</li>
-        <li><strong>Netdata</strong> — 实时系统指标可视化</li>
+        <li><strong>Uptime Kuma</strong> — 服务可用性监控 + 多通道告警（Telegram/Email/Webhook）</li>
+        <li><strong>Healthchecks</strong> — Cron 任务心跳监控 + 超时告警 + 日志记录</li>
+        <li><strong>Netdata</strong> — 实时系统指标可视化（CPU/内存/磁盘/网络）</li>
       </ul>
-      <h4>Deployment</h4>
+      <h4>部署方案</h4>
       <ul>
         <li>Docker Compose 一键启动</li>
         <li>Cloudflare Tunnel 内网穿透</li>
         <li>持久化数据卷配置</li>
         <li>TZ 时区设置（Asia/Shanghai）</li>
       </ul>
+      <h4>技术栈</h4>
+      <p>Docker · Docker Compose · Linux · Cloudflare Tunnel</p>
     `
   },
   'cloudflared': {
     title: 'Cloudflare Tunnel',
-    type: 'DevOps',
-    tags: ['Cloudflare', 'Docker', 'Network', 'WARP'],
+    type: '运维',
+    tags: ['Cloudflare', 'Docker', '网络', '安全', 'WARP'],
     detail: `
-      <h4>Overview</h4>
-      <p>使用 Cloudflare Tunnel + WARP + DoH 实现 Docker 容器安全暴露到公网。</p>
-      <h4>Key Decisions</h4>
+      <h4>项目概述</h4>
+      <p>使用 Cloudflare Tunnel + WARP + DoH 实现 Docker 容器安全暴露到公网，无需开放端口。</p>
+      <h4>关键决策</h4>
       <ul>
-        <li><strong>版本锁定</strong>：Pin cloudflared:2024.5.0</li>
-        <li><strong>协议强制</strong>：Force HTTP/2 top-level protocol</li>
-        <li><strong>DNS 配置</strong>：CNAME proxied: true</li>
-        <li><strong>网络隔离</strong>：多服务容器加入共享网络</li>
-        <li><strong>WARP DoH</strong>：本地客户端通过 WARP DoH 解析</li>
+        <li><strong>版本锁定</strong>：Pin cloudflared:2024.5.0，避免 2026.x post-quantum X25519MLKEM768 TLS EOF 问题</li>
+        <li><strong>协议强制</strong>：Force HTTP/2 top-level protocol（ISP 阻断 QUIC/UDP/7844）</li>
+        <li><strong>DNS 配置</strong>：CNAME proxied: true，ingress 指向 Docker 容器名</li>
+        <li><strong>网络隔离</strong>：多服务容器加入共享网络（vaultwarden_vw-net）</li>
+        <li><strong>WARP DoH</strong>：本地客户端通过 WARP DoH 解析真实 Cloudflare edges</li>
       </ul>
+      <h4>技术栈</h4>
+      <p>Cloudflare Tunnel · WARP · Docker · DoH · Named Tunnel</p>
     `
   },
   'memory-system': {
-    title: 'Memory System',
-    type: 'Design',
-    tags: ['AI', 'Architecture', 'Knowledge Management'],
+    title: '记忆系统设计',
+    type: '设计',
+    tags: ['AI', '知识管理', '架构', '设计模式'],
     detail: `
-      <h4>Overview</h4>
-      <p>为 AI Agent 设计的三层记忆架构，平衡存储效率与场景匹配。</p>
-      <h4>Core Principles</h4>
+      <h4>项目概述</h4>
+      <p>为 AI Agent 设计的三层记忆架构，平衡存储效率与场景匹配，解决长期记忆的"存储-遗忘"矛盾。</p>
+      <h4>核心原则</h4>
       <ul>
-        <li><strong>分层提炼</strong> — 原始→摘要→规律→画像逐层固化</li>
-        <li><strong>震动阈值</strong> — 长期标签需频次/强度门槛</li>
-        <li><strong>双轨记忆</strong> — 短期上下文 + 长期画像并行</li>
-        <li><strong>筛选优先</strong> — 遗忘策略比存储更重要</li>
-        <li><strong>因果追踪</strong> — 记录偏好变化与冲突判别</li>
+        <li><strong>分层提炼</strong> — 原始→摘要→规律→画像逐层固化，降低噪声</li>
+        <li><strong>震动阈值</strong> — 长期标签需频次/强度门槛，避免单次偶然表达改变画像</li>
+        <li><strong>双轨记忆</strong> — 短期上下文（会话）+ 长期画像（持久）并行存储</li>
+        <li><strong>筛选优先</strong> — 遗忘策略比存储更重要，核心能力是决定"哪些该记哪些该忘"</li>
+        <li><strong>因果追踪</strong> — 记录偏好变化/场景差异/记录错误的判别逻辑</li>
+        <li><strong>同频至上</strong> — 记忆的价值在于交互时刻的场景匹配，而非存储容量</li>
+        <li><strong>主动洞察</strong> — 识别未表达的需求/情绪/趋势，主动提供价值</li>
+      </ul>
+      <h4>实现方案</h4>
+      <ul>
+        <li><strong>Global</strong>：MEMORY.md — 跨项目、长期稳定、每月更新</li>
+        <li><strong>Important</strong>：IMPORTANT-NOTES.md — 重要但场景限定、每周更新</li>
+        <li><strong>Temporary</strong>：memory/YYYY-MM-DD.md — 单次会话记录、7 天内决定晋升</li>
       </ul>
     `
   },
   'portfolio': {
-    title: 'This Portfolio',
-    type: 'Website',
-    tags: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+    title: '本作品集',
+    type: '网站',
+    tags: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'Canvas'],
     detail: `
-      <h4>Overview</h4>
-      <p>极简技术感设计的个人作品集，参考 Lusion.co 设计语言。</p>
-      <h4>Design</h4>
+      <h4>项目概述</h4>
+      <p>极简技术感设计的个人作品集，参考 Lusion.co 设计语言，托管于 GitHub Pages。</p>
+      <h4>设计</h4>
       <ul>
         <li>暗色沉浸式主题 + 噪点纹理 + 渐变光晕</li>
-        <li>Canvas 3D 粒子背景</li>
+        <li>Canvas 3D 粒子背景（鼠标排斥 + 连接线）</li>
         <li>全屏 hero 大字 + scroll-driven 叙事</li>
         <li>渐入渐出 + 数字递增动画</li>
         <li>项目详情弹窗 + 跑马灯</li>
       </ul>
-      <h4>Tech</h4>
+      <h4>技术</h4>
       <p>HTML5 · CSS3 (Grid/Flexbox) · Vanilla JavaScript · Canvas API · GitHub Pages</p>
     `
   }
@@ -180,23 +202,19 @@ class ParticleField {
 
     ctx.clearRect(0, 0, w, h);
 
-    // 视差偏移（基于滚动）
     const offsetY = scrollY * 0.15;
 
-    // 更新粒子位置
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
 
       p.x += p.vx;
-      p.y += p.vy - 0.2; // 缓慢上飘
+      p.y += p.vy - 0.2;
 
-      // 边界检测
       if (p.x < 0) p.x = w;
       if (p.x > w) p.x = 0;
       if (p.y < -50) p.y = h + 50;
       if (p.y > h + 50) p.y = -50;
 
-      // 鼠标排斥
       const dx = p.x - mouse.x;
       const dy = p.y - mouse.y - offsetY;
       const dist = Math.sqrt(dx * dx + dy * dy);
@@ -206,7 +224,6 @@ class ParticleField {
         p.y += (dy / dist) * force * 1.5;
       }
 
-      // 绘制
       const drawY = p.y + offsetY;
       ctx.beginPath();
       ctx.arc(p.x, drawY, p.r, 0, Math.PI * 2);
@@ -214,7 +231,6 @@ class ParticleField {
       ctx.fill();
     }
 
-    // 连接线（粒子之间）
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const a = particles[i];
@@ -408,7 +424,6 @@ const counterObserver = new IntersectionObserver((entries) => {
       function tick(now) {
         const elapsed = now - start;
         const t = Math.min(1, elapsed / duration);
-        // ease-out cubic
         const eased = 1 - Math.pow(1 - t, 3);
         el.textContent = Math.floor(eased * target);
         if (t < 1) requestAnimationFrame(tick);
@@ -485,10 +500,8 @@ document.querySelectorAll('.magnetic').forEach(el => {
 // Scroll Listener
 // ============================================
 window.addEventListener('scroll', () => {
-  // Header state
   document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
 
-  // Progress bar
   const progress = document.getElementById('scrollProgress');
   if (progress) {
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -496,7 +509,6 @@ window.addEventListener('scroll', () => {
     progress.style.transform = `scaleX(${pct})`;
   }
 
-  // Scroll hint
   const hint = document.getElementById('scrollHint');
   if (hint) hint.classList.toggle('hidden', window.scrollY > window.innerHeight * 0.3);
 }, { passive: true });
@@ -505,11 +517,9 @@ window.addEventListener('scroll', () => {
 // Init
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
-  // Particle field
   const canvas = document.getElementById('particles');
   if (canvas) new ParticleField(canvas);
 
-  // Modal events
   document.getElementById('projectModal').addEventListener('click', (e) => {
     if (e.target.id === 'projectModal') closeProject();
   });
