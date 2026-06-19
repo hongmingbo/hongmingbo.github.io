@@ -428,7 +428,7 @@ body {
   font-family: var(--font-sans);
   font-size: clamp(56px, 9vw, 120px);
   font-weight: 600;
-  line-height: 0.95;
+  line-height: 1.15;
   letter-spacing: -0.04em;
   margin-bottom: 48px;
   max-width: 1200px;
@@ -437,6 +437,8 @@ body {
 .hero-line {
   display: block;
   overflow: hidden;
+  padding: 0.08em 0;
+  margin: -0.08em 0;
 }
 
 .hero-line > * {
