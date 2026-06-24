@@ -121,6 +121,33 @@ const projects = {
       </ul>
     `
   },
+  'cloud-mail': {
+    title: 'Cloud Mail',
+    type: '基础设施',
+    tags: ['Cloudflare', 'Workers', 'D1', 'KV', 'Resend', '邮箱'],
+    detail: `
+      <h4>项目概述</h4>
+      <p>完全免费、零服务器成本的域名邮箱系统，基于 Cloudflare Workers + D1 + KV + Resend 构建。支持收发邮件、多用户、多域名。</p>
+      <h4>架构组件</h4>
+      <ul>
+        <li><strong>Worker</strong> — 处理 HTTP 请求和邮件路由，10 万请求/天免费</li>
+        <li><strong>D1</strong> — 关系数据库：存储邮件元数据、用户、系统设置，5GB 免费</li>
+        <li><strong>KV</strong> — 键值缓存：配置缓存、认证 session、日发送计数，1GB 免费</li>
+        <li><strong>Resend</strong> — 第三方发信服务，100 封/天/账号免费</li>
+        <li><strong>Email Routing</strong> — Cloudflare 邮件路由 → 转 Worker 处理</li>
+      </ul>
+      <h4>关键设计决策</h4>
+      <ul>
+        <li><strong>D1-based auth-store</strong>：免费 KV 仅 1000 次写入/天，注册+登录+刷新可能打满配额。改造为 D1 的 _auth_session 表替代 KV 写操作，KV 读不受限</li>
+        <li><strong>14 张 D1 表</strong>：email、user、account、setting、perm、role、role_perm、attachments、star、reg_key、oauth、verify_record、_auth_session、sqlite_sequence</li>
+        <li><strong>JWT 认证</strong>：jwt_secret 环境变量 + /api/init/{jwt_secret} 初始化</li>
+      </ul>
+      <h4>部署链路</h4>
+      <p>Fork 仓库 → Cloudflare Dashboard → Workers & Pages → 环境变量 → D1+KV 绑定 → Email Routing Catch-all → API 初始化</p>
+      <h4>登录地址</h4>
+      <p><a href="https://hdzkfx.dpdns.org" target="_blank">hdzkfx.dpdns.org</a></p>
+    `
+  },
   'portfolio': {
     title: '本作品集',
     type: '网站',
