@@ -151,20 +151,138 @@ const projects = {
   'portfolio': {
     title: '本作品集',
     type: '网站',
-    tags: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'Canvas'],
+    tags: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', '设计'],
     detail: `
       <h4>项目概述</h4>
-      <p>极简技术感设计的个人作品集，参考 Lusion.co 设计语言，托管于 GitHub Pages。</p>
+      <p>极简技术感设计的个人作品集，参考 Lusion.co 设计语言。</p>
       <h4>设计</h4>
       <ul>
         <li>暗色沉浸式主题 + 噪点纹理 + 渐变光晕</li>
-        <li>Canvas 3D 粒子背景（鼠标排斥 + 连接线）</li>
-        <li>全屏 hero 大字 + scroll-driven 叙事</li>
-        <li>渐入渐出 + 数字递增动画</li>
-        <li>项目详情弹窗 + 跑马灯</li>
+        <li>JetBrains Mono 等宽字体 + 终端风格 UI</li>
+        <li>顶部简洁横排导航 + 锚点滚动</li>
+        <li>自定义光标 + 3D 卡片倾斜 + 滚动渐入</li>
       </ul>
       <h4>技术</h4>
       <p>HTML5 · CSS3 (Grid/Flexbox) · Vanilla JavaScript · Canvas API · GitHub Pages</p>
+    `
+  },
+  'helloagent': {
+    title: 'HelloAgent',
+    type: '工具链',
+    tags: ['Android', 'jadx', 'apktool', '逆向', 'MCP'],
+    detail: `
+      <h4>项目概述</h4>
+      <p>Android APK 逆向分析实战工作流：使用 jadx-mcp 工具链自动扫描包树、反编译源码、分析 AndroidManifest、提取字符串资源。</p>
+      <h4>关键能力</h4>
+      <ul>
+        <li><strong>包树扫描</strong>：1428 个包 / 6639 个类，识别核心业务代码 vs 第三方库</li>
+        <li><strong>主 Activity 反编译</strong>：MainActivity 调用链、生命周期、UI 绑定</li>
+        <li><strong>GreetingHelper 分析</strong>：纯 Java 工具类方法签名与源码</li>
+        <li><strong>Manifest 审计</strong>：minSdk 24 / target 34 / exported 组件 / 权限</li>
+        <li><strong>strings.xml 提取</strong>：从 APK 资源索引还原字符串常量</li>
+      </ul>
+      <h4>价值</h4>
+      <p>为后续 Android 工具链工程化（jadx + apktool + 自动化回归）提供可复用模板。</p>
+    `
+  },
+  'vibe-coding': {
+    title: 'Vibe Coding',
+    type: '方法论',
+    tags: ['AI', 'Prompt Engineering', 'Claude', 'GEO', '自媒体'],
+    detail: `
+      <h4>项目概述</h4>
+      <p>AI 编程方法论研究：精读 14 个 Vibe Coding 教程文件，提取 38 条可迁移方法论，涵盖意图驱动编程、产品变现、SEO/GEO 优化、自媒体运营四大维度。</p>
+      <h4>核心原则</h4>
+      <ul>
+        <li><strong>意图驱动</strong>：从"怎么做"转向"做什么"，母语比语法重要</li>
+        <li><strong>先做再学</strong>：完成第一个项目后按需补知识</li>
+        <li><strong>小步快跑</strong>：每轮对话提 1-5 个具体需求</li>
+        <li><strong>AGENTS.md 约束</strong>：项目级规则文件自动遵守约定</li>
+        <li><strong>提示词即行为操作系统</strong>：Fable 5 大部分改进编码在提示词里</li>
+      </ul>
+      <h4>Fable 5 复现</h4>
+      <p>Opus 4.8 + 一份提示词可复现 Fable 5 90% 效果；Gemma 4 12B Coder 在消费级显卡本地部署。Effort 参数 + 提示词构成成本-性能解耦。</p>
+    `
+  }
+};
+
+// ============================================
+// Research Data
+// ============================================
+const research = {
+  'vibe-coding': {
+    title: 'Vibe Coding 可迁移方法论',
+    type: '方法论研究',
+    tags: ['AI 编程', 'Prompt Engineering', 'GEO'],
+    detail: `
+      <h4>研究范围</h4>
+      <p>精读 14 个 Vibe Coding 教程文件（含基础 3 件 + 产品变现 11 件），提取可操作原则。</p>
+      <h4>方法论分布</h4>
+      <ul>
+        <li><strong>Vibe Coding 基础</strong>（8 条）：意图驱动、先做再学、小步快跑、需求五要素、AGENTS.md 约束、Git 后悔药、按复杂度选模式、教别人</li>
+        <li><strong>产品变现</strong>（11 条）：做前四问、三维度需求分析、P0-P3 优先级、选型四步法、按功能拆分模块、Freemium 模式、点数机制</li>
+        <li><strong>SEO/GEO 优化</strong>（11 条）：四步流程、关键词强相关、SSR/SSG、GEO 优先结论、结构化写作、权威内容、权威平台多发布、内容新鲜</li>
+        <li><strong>自媒体运营</strong>（8 条）：真实经历起号、降低预期、有趣比干货重要、多平台、创意是核心、快速验证、学会放手、找准定位</li>
+      </ul>
+      <h4>核心结论</h4>
+      <p>AI 编程的成功是 Model × Skill × 输入上下文的乘积。便宜的 Model + 好的 Skill + 清晰上下文 > 贵的 Model + 无说明书。</p>
+    `
+  },
+  'hermes-v017': {
+    title: 'Hermes v0.17.0 四方解读',
+    type: '版本解读',
+    tags: ['Hermes', 'v0.17.0', 'Reach', 'Skills Hub'],
+    detail: `
+      <h4>解读来源</h4>
+      <p>4 位微信公众号作者（量子智元、CYBER 日常、知识姬 Mina、One 掌柜）2026-06-20 同日报道。</p>
+      <h4>核心更新</h4>
+      <ul>
+        <li><strong>后台 Subagent</strong>：<code>delegate_task(background=true)</code> 立即返回 handle，结果自动回对话</li>
+        <li><strong>iMessage Photon</strong>：托管线路池 + 设备码认证，蓝色气泡原生接入</li>
+        <li><strong>Automation Blueprints</strong>：填表式定时任务，cron 语法隐藏到用户层</li>
+        <li><strong>Memory 原子操作</strong>：<code>operations</code> 数组批量 add/replace/remove，预算内原子执行</li>
+        <li><strong>Skills Hub 重做</strong>：Featured 区 + 安装前预览 + 安全扫描</li>
+        <li><strong>Grok Composer 2.5</strong>：<code>grok-composer-2.5-fast</code> 通过 xAI OAuth 直连，200k context</li>
+      </ul>
+      <h4>实用建议</h4>
+      <p>更新后必检：<code>hermes --version</code> → <code>hermes doctor</code> → <code>hermes status --all</code> → <code>hermes gateway status</code>。</p>
+    `
+  },
+  'fable5': {
+    title: 'Claude Fable 5 复现与本地部署',
+    type: 'AI 研究',
+    tags: ['Claude', 'Fable 5', 'Opus 4.8', 'Gemma 4', '本地部署'],
+    detail: `
+      <h4>研究目标</h4>
+      <p>通过泄露的 Fable 5 系统提示词在 Opus 4.8 上复现 Agent 编程能力，并探索本地 12B 蒸馏模型的可行性。</p>
+      <h4>核心发现</h4>
+      <ul>
+        <li><strong>Effort 参数</strong>：max / xhigh / high(默认) / medium / low，low effort 表现常超前代 xhigh</li>
+        <li><strong>指令遵循</strong>：极简指令触发复杂行为，"先说结果"即可改变输出结构</li>
+        <li><strong>进度审计</strong>：强制工具结果验证，几乎消除虚假状态报告</li>
+        <li><strong>Memory 系统</strong>：Markdown 文件经验库，纠错更新、删除错误笔记</li>
+        <li><strong>本地平替</strong>：Gemma 4 12B Coder + Q4_K_M 量化，6.87GB 显存即可运行</li>
+      </ul>
+      <h4>可复用提示词</h4>
+      <p>"在汇报进度之前，用工具返回结果逐条审计每个声明。只汇报有证据的工作。"</p>
+    `
+  },
+  'taste-skill': {
+    title: '前端 Taste Skill 轻量化',
+    type: '设计方法论',
+    tags: ['前端', 'Taste', 'Anti-slop', '静态站'],
+    detail: `
+      <h4>研究目标</h4>
+      <p>GitHub 项目 Taste Skill 的理念吸收 + 改造成适配个人工作流的轻量 Hermes Skill（frontend-taste-architect）。</p>
+      <h4>核心方法</h4>
+      <ul>
+        <li><strong>三方向设计逻辑</strong>：撞/借/请——不同启发路径给同一任务不同美学方案</li>
+        <li><strong>三个设计刻度</strong>：保守/中性/大胆，控制输出风险</li>
+        <li><strong>Anti-slop 禁令</strong>：避免紫色渐变、圆角卡片堆叠、假 Dashboard、空洞营销文案</li>
+        <li><strong>交付检查清单</strong>：确认任务覆盖、设计取舍、响应式、浏览器测试</li>
+      </ul>
+      <h4>实施</h4>
+      <p>已创建 Hermes Skill：<code>frontend-taste-architect</code>，路径 <code>C:/Users/Hmingbo/AppData/Local/hermes/skills/software-development/frontend-taste-architect/</code>，分类 software-development。</p>
     `
   }
 };
@@ -304,6 +422,24 @@ function openProject(id) {
 function closeProject() {
   document.getElementById('projectModal').classList.remove('active');
   document.body.style.overflow = '';
+}
+
+// Research modal
+function openResearch(id) {
+  const modal = document.getElementById('projectModal');
+  const content = document.getElementById('modalContent');
+  const r = research[id];
+  if (!r) return;
+
+  content.innerHTML = `
+    <button class="modal-close" onclick="closeProject()">✕</button>
+    <h2>${r.title}</h2>
+    <p class="modal-meta">${r.tags.map(t => `<span>${t}</span>`).join(' · ')}</p>
+    <div class="modal-body">${r.detail}</div>
+  `;
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
 
 // ============================================
