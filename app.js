@@ -1,65 +1,36 @@
 // ============================================
-// 中文作品集数据
+// 项目数据
 // ============================================
 const projects = {
-  'frontend-lusion': {
-    title: 'Lusion 风格前端页面',
-    type: '作品集 / 视觉设计',
-    tags: ['前端设计', '3D', '动效', '视觉层级'],
-    detail: `
-      <h4>项目概述</h4>
-      <p>把高端品牌页、交互动效和 3D 氛围整合成一套中文作品集首页，强调高级感、层次和阅读节奏。</p>
-      <h4>设计重点</h4>
-      <ul>
-        <li>深色背景 + 发光渐变 + 低噪点纹理</li>
-        <li>大标题、短文案、强节奏首屏</li>
-        <li>中文界面优先，去掉多余的技术感噪音</li>
-        <li>面向 GitHub Pages 的静态发布</li>
-      </ul>
-      <h4>实现方式</h4>
-      <ul>
-        <li>原生 HTML + CSS + JavaScript</li>
-        <li>滚动进度、加载屏、粒子背景、自定义光标</li>
-        <li>模块化内容区：作品 / 关于 / 研究 / 联系</li>
-      </ul>
-    `
-  },
   'obsidian-vault': {
     title: 'Obsidian Vault',
-    type: '基础设施 / 知识管理',
-    tags: ['Obsidian', 'Python', 'Markdown', 'AI', '自动化'],
+    type: '知识管理',
+    tags: ['Obsidian', 'Python', 'AI', 'Markdown', '知识管理'],
     detail: `
       <h4>项目概述</h4>
-      <p>个人知识库与内容工作流，结合 Obsidian 和 Hermes Agent，实现从信息收集到知识沉淀的自动化。</p>
-      <h4>核心能力</h4>
+      <p>个人知识库与内容创作工作流，结合 Obsidian + Hermes Agent，实现从内容采集到知识沉淀的全链路自动化。</p>
+      <h4>核心功能</h4>
       <ul>
-        <li>分层记忆管理</li>
-        <li>Markdown、HTML、Word 输出流水线</li>
-        <li>安全记忆和会话结束协议</li>
-        <li>适合长期积累的方法论库</li>
+        <li>4 文件夹结构：选题 / 竞品 / 方法论 / 灵感</li>
+        <li>三层记忆体系：Global / Important / Temporary</li>
+        <li>Markdown → Word / HTML / PDF 输出流水线</li>
+        <li>零凭证规则 + 安全记忆管理</li>
       </ul>
-    `
-  },
-  'we-mp-rss': {
-    title: 'we-mp-rss',
-    type: '工具 / 自动化',
-    tags: ['Playwright', 'Python', 'RSS', 'WebKit'],
-    detail: `
-      <h4>项目概述</h4>
-      <p>微信公众号和视频号内容提取工具，基于 Playwright 实现自动采集与订阅分发。</p>
-      <h4>解决的问题</h4>
+      <h4>技术亮点</h4>
       <ul>
-        <li>公众号正文提取</li>
-        <li>Windows 下浏览器环境路径管理</li>
-        <li>RSS / JSON 输出</li>
-        <li>自动推送到订阅端</li>
+        <li>Hermes Agent 集成：skills、profiles、memory store 全链路打通</li>
+        <li>Playwright WebKit 截图 + 内容提取</li>
+        <li>多格式文档转换（mdstyle skill）</li>
+        <li>Obsidian vault 作为单一事实来源</li>
       </ul>
+      <h4>链接</h4>
+      <p><a href="https://github.com/Hongmingbo/obsidian-vault" target="_blank" rel="noreferrer">项目仓库</a></p>
     `
   },
   'monitoring': {
     title: '监控系统',
-    type: '基础设施 / 运行保障',
-    tags: ['Docker', 'Uptime', 'Healthchecks', '自托管'],
+    type: '基础设施',
+    tags: ['Docker', '监控', '自托管', 'Uptime', 'Healthchecks'],
     detail: `
       <h4>项目概述</h4>
       <p>围绕自托管服务建立监控、告警和备份机制，确保本地服务稳定可见。</p>
@@ -72,39 +43,57 @@ const projects = {
       </ul>
     `
   },
-  'android-reverse': {
-    title: 'Android 逆向与分析',
-    type: '技术研究',
-    tags: ['Android', 'JADX', 'Apktool', '调试'],
+  'cloudflared': {
+    title: 'Cloudflare Tunnel',
+    type: '网络 / 部署',
+    tags: ['Cloudflare', 'Tunnel', 'WARP', 'Docker'],
     detail: `
       <h4>项目概述</h4>
-      <p>Android APK 结构分析与调试工作流，覆盖反编译、资源提取、主 Activity 和方法定位。</p>
+      <p>使用 Cloudflare Tunnel 将 Docker 服务安全暴露到公网，减少端口暴露与手工配置成本。</p>
       <h4>价值</h4>
       <ul>
-        <li>更快理解第三方 APK 的结构</li>
-        <li>为后续自动化分析提供模板</li>
-        <li>对 Android 工具链工程化有帮助</li>
+        <li>避免直接开放端口</li>
+        <li>更适合自托管服务长期运行</li>
+        <li>便于和多个后台服务统一管理</li>
+      </ul>
+    `
+  },
+  'memory-system': {
+    title: '记忆系统',
+    type: '架构研究',
+    tags: ['Hermes', '记忆', '知识沉淀', '架构'],
+    detail: `
+      <h4>项目概述</h4>
+      <p>分层记忆、生命周期、会话结束和长期沉淀之间的边界设计。</p>
+      <h4>目标</h4>
+      <ul>
+        <li>减少重复解释</li>
+        <li>保留可复用经验</li>
+        <li>让未来项目更少返工</li>
       </ul>
     `
   },
   'vibe-coding': {
-    title: 'Vibe Coding 方法论',
+    title: 'Vibe Coding',
     type: '方法论研究',
-    tags: ['AI', 'Prompt', 'GEO', '工作流'],
+    tags: ['AI', 'Prompt Engineering', 'Claude', 'GEO', '自媒体'],
     detail: `
       <h4>项目概述</h4>
-      <p>提炼 AI 编程和提示词工作流中的可迁移方法，把“怎么写”转向“怎么交付”。</p>
+      <p>AI 编程方法论研究：精读 14 个 Vibe Coding 教程文件，提取 38 条可迁移方法论，涵盖意图驱动编程、产品变现、SEO/GEO 优化、自媒体运营四大维度。</p>
       <h4>核心原则</h4>
       <ul>
-        <li>先做再学</li>
-        <li>小步快跑</li>
-        <li>意图优先于语法</li>
-        <li>把提示词当成行为系统</li>
+        <li><strong>意图驱动</strong>：从“怎么做”转向“做什么”，母语比语法重要</li>
+        <li><strong>先做再学</strong>：完成第一个项目后按需补知识</li>
+        <li><strong>小步快跑</strong>：每轮对话提 1-5 个具体需求</li>
+        <li><strong>AGENTS.md 约束</strong>：项目级规则文件自动遵守约定</li>
       </ul>
     `
   }
 };
 
+// ============================================
+// Research Data
+// ============================================
 const research = {
   'lusion-study': {
     title: 'Lusion 风格研究',
@@ -117,7 +106,7 @@ const research = {
       <ul>
         <li>首屏不塞满内容，留出呼吸空间</li>
         <li>标题大、正文短、按钮少而准</li>
-        <li>深色背景上控制发光与对比</li>
+        <li>深浅背景都要控制光效和对比</li>
       </ul>
     `
   },
@@ -136,13 +125,28 @@ const research = {
       </ul>
     `
   },
-  'memory-system': {
-    title: '记忆系统',
-    type: '架构研究',
-    tags: ['Hermes', '记忆', '知识沉淀'],
+  'android-reverse': {
+    title: 'Android 逆向与分析',
+    type: '技术研究',
+    tags: ['Android', 'JADX', 'Apktool', '调试'],
+    detail: `
+      <h4>项目概述</h4>
+      <p>Android APK 结构分析与调试工作流，覆盖反编译、资源提取、主 Activity 和方法定位。</p>
+      <h4>价值</h4>
+      <ul>
+        <li>更快理解第三方 APK 的结构</li>
+        <li>为后续自动化分析提供模板</li>
+        <li>对 Android 工具链工程化有帮助</li>
+      </ul>
+    `
+  },
+  'memory-ops': {
+    title: '记忆操作协议',
+    type: '治理研究',
+    tags: ['Hermes', '记忆', '流程'],
     detail: `
       <h4>研究范围</h4>
-      <p>分层记忆、生命周期、会话结束和长期沉淀之间的边界设计。</p>
+      <p>整理长期记忆、会话总结和技能沉淀之间的分工，降低上下文污染。</p>
       <h4>目标</h4>
       <ul>
         <li>减少重复解释</li>
@@ -167,13 +171,13 @@ function cardHtml(items, kind) {
       <div class="project-tags-top">
         ${item.tags.map((tag) => `<span>${tag}</span>`).join('')}
       </div>
-      <p class="project-desc">${item.detail.replace(/<[^>]+>/g, '').slice(0, 90)}…</p>
+      <p class="project-desc">${item.detail.replace(/<[^>]+>/g, '').slice(0, 96)}…</p>
       <div class="project-view">查看详情 <span class="arrow">→</span></div>
     </article>
   `).join('');
 }
 
-document.getElementById('projectGrid').innerHTML = cardHtml(projects, '作品');
+document.getElementById('projectGrid').innerHTML = cardHtml(projects, '项目');
 document.getElementById('researchGrid').innerHTML = cardHtml(research, '研究');
 
 // ============================================
@@ -242,7 +246,7 @@ class ParticleField {
   animate() {
     const ctx = this.ctx;
     ctx.clearRect(0, 0, this.width, this.height);
-    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.fillStyle = 'rgba(15,23,42,0.82)';
     for (const p of this.particles) {
       p.x += p.vx;
       p.y += p.vy;

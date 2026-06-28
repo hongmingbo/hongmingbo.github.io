@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>洪明波 / 作品集</title>
-  <meta name="description" content="洪明波的中文作品集，聚焦前端设计、交互动效、可视化、自动化与知识管理。">
+  <title>项目展示 / 作品归档</title>
+  <meta name="description" content="项目展示与研究归档，聚焦前端设计、自动化、知识管理、自托管与技术研究。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
       <p class="loader-text"><span>正在加载</span><span id="loaderPercent">0%</span></p>
       <div class="loader-percent" id="loaderNum">0</div>
       <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
-      <p class="loader-sub">Hongmingbo / 2026</p>
+      <p class="loader-sub">Project Archive / 2026</p>
     </div>
   </div>
 
@@ -30,11 +30,11 @@
   <div class="orb orb-2"></div>
 
   <header class="header" id="header">
-    <a href="/" class="logo" aria-label="洪明波首页">H<span>.</span>Mingbo</a>
+    <a href="#hero" class="logo">Project<span>.</span>Archive</a>
     <nav class="top-nav">
-      <a href="#work">作品</a>
-      <a href="#about">关于</a>
-      <a href="#contact" class="nav-cta">联系我</a>
+      <a href="#work">项目</a>
+      <a href="#research">研究</a>
+      <a href="#contact" class="nav-cta">获取信息</a>
     </nav>
   </header>
 
@@ -46,64 +46,42 @@
   <main id="app">
     <section class="section section-hero" id="hero">
       <div class="hero-content">
-        <p class="hero-tagline">前端设计 · 动效 · 可视化 · 自动化</p>
+        <p class="hero-tagline">项目展示 · 研究归档 · 工具整理</p>
         <h1 class="hero-title">
-          <span class="hero-line">高级感<span class="accent">页面</span>，</span>
-          <span class="hero-line">中文界面<span class="accent">表达</span>。</span>
+          <span class="hero-line">把项目<span class="accent">整理</span>好，</span>
+          <span class="hero-line">把能力<span class="accent">展示</span>清楚。</span>
         </h1>
         <p class="hero-copy">
-          我把前端设计、交互动效、可视化和自动化整合到一套清晰的工作流里，让页面既有质感，也能稳定交付。
+          这里记录前端设计、自动化、知识管理、自托管和技术研究的成果，重点是清晰、可读、可持续维护。
         </p>
         <div class="hero-actions">
-          <a href="#work" class="button button-primary">查看作品</a>
-          <a href="#contact" class="button button-secondary">联系我</a>
+          <a href="#work" class="button button-primary">查看项目</a>
+          <a href="#research" class="button button-secondary">查看研究</a>
         </div>
-        <div class="hero-stats">
-          <div class="stat-card"><span>专注方向</span><strong>前端 / 3D / 视觉</strong></div>
-          <div class="stat-card"><span>风格偏好</span><strong>高级、克制、非模板感</strong></div>
-          <div class="stat-card"><span>交付方式</span><strong>静态站 / 动效页 / 工具页</strong></div>
+        <div class="hero-meta">
+          <span class="hero-meta-item">static site</span>
+          <span class="hero-meta-divider">/</span>
+          <span class="hero-meta-item">visual archive</span>
+          <span class="hero-meta-divider">/</span>
+          <span class="hero-meta-item">2026</span>
         </div>
       </div>
     </section>
 
-    <section class="section section-grid" id="work">
-      <div class="section-heading">
-        <p class="section-kicker">精选作品</p>
-        <h2>不是堆功能，而是把能力做成可理解的系统。</h2>
+    <section class="section section-work" id="work">
+      <div class="work-header">
+        <h2 class="work-title reveal">项目</h2>
+        <p class="work-subtitle reveal reveal-delay-1">记录已经做过的东西，保持可追踪、可复用、可继续迭代。</p>
       </div>
       <div class="project-grid" id="projectGrid"></div>
     </section>
 
-    <section class="section section-about" id="about">
-      <div class="about-layout">
-        <div>
-          <p class="section-kicker">关于我</p>
-          <h2>我更关注页面是否有结构、节奏和可重复使用的表达。</h2>
-        </div>
-        <div class="about-copy">
-          <p>我会优先把设计、动效、信息层级和可维护性一起考虑，而不是只做一个好看的截图。</p>
-          <p>如果页面需要动画、可视化或交互氛围，我会先保证可见性，再往上堆质感和节奏。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-grid" id="research">
-      <div class="section-heading">
-        <p class="section-kicker">研究</p>
-        <h2>把学习、方法论和自动化沉淀成可复用资产。</h2>
+    <section class="section section-research" id="research">
+      <div class="work-header">
+        <h2 class="work-title reveal">研究</h2>
+        <p class="work-subtitle reveal reveal-delay-1">把阅读、方法论和工具链沉淀成可回看的知识条目。</p>
       </div>
       <div class="research-grid" id="researchGrid"></div>
-    </section>
-
-    <section class="section section-contact" id="contact">
-      <div class="contact-panel">
-        <p class="section-kicker">联系</p>
-        <h2>需要中文作品集、前端页面、动画页或可视化页面时，可以直接联系我。</h2>
-        <div class="contact-actions">
-          <a class="button button-primary" href="mailto:hmingbo@example.com">发送邮件</a>
-          <a class="button button-secondary" href="https://github.com/Hongmingbo" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-      </div>
     </section>
   </main>
 
